@@ -1,381 +1,283 @@
-/* ==========================================================================
-   Acesso em Foco — JavaScript do site
-   Carregado com "defer" em todas as páginas. Partes:
-   1. Armazenamento seguro (localStorage pode estar indisponível)
-   2. Anúncios para leitores de tela (região aria-live)
-   3. Tamanho do texto (A−, A+, Padrão)
-   4. Modo escuro e alto contraste (aria-pressed)
-   5. Menu em telas pequenas (aria-expanded)
-   6. Checklist com progresso
-   7. Quiz com correção e explicações
-   ========================================================================== */
-(function () {
-  'use strict';
+/* ==========================================================
+   Acesso em Foco - JavaScript
+   1. Avisos para leitores de tela
+   2. Tamanho do texto (A-, A+, Padrão)
+   3. Modo escuro e alto contraste
+   4. Menu em telas pequenas
+   5. Checklist
+   6. Quiz
+   ========================================================== */
 
-  var raiz = document.documentElement;
-  raiz.classList.add('js');
+// Avisa o CSS de que o JavaScript está funcionando
+document.documentElement.classList.add('js');
 
-  /* 1. Armazenamento ------------------------------------------------------ */
-  function ler(chave) {
-    try {
-      return window.localStorage.getItem(chave);
-    } catch (erro) {
-      return null;
-    }
+/* 1. Avisos ------------------------------------------------- */
+// O parágrafo #anuncios tem role="status": o leitor de tela lê o que for escrito nele.
+function anunciar(texto) {
+  var regiao = document.getElementById('anuncios');
+  regiao.textContent = '';
+  setTimeout(function () {
+    regiao.textContent = texto;
+  }, 100);
+}
+
+// A barra de preferências começa escondida (hidden) e só aparece com JavaScript,
+// assim ninguém vê botões que não funcionariam.
+document.getElementById('preferencias').hidden = false;
+
+/* 2. Tamanho do texto --------------------------------------- */
+var tamanhos = [87.5, 100, 112.5, 125, 137.5, 150];
+var posicaoPadrao = 1; // 100%
+var posicao = Number(localStorage.getItem('aef-fonte'));
+
+if (!localStorage.getItem('aef-fonte') || !tamanhos[posicao]) {
+  posicao = posicaoPadrao;
+}
+
+var botaoDiminuir = document.querySelector('[data-fonte="diminuir"]');
+var botaoAumentar = document.querySelector('[data-fonte="aumentar"]');
+var botaoPadrao = document.querySelector('[data-fonte="padrao"]');
+
+function textoDoTamanho() {
+  return String(tamanhos[posicao]).replace('.', ',') + '%';
+}
+
+function aplicarTamanho() {
+  document.documentElement.style.fontSize = tamanhos[posicao] + '%';
+  document.getElementById('valor-fonte').textContent = textoDoTamanho();
+  // aria-disabled avisa que o limite chegou, sem tirar o foco do botão
+  botaoDiminuir.setAttribute('aria-disabled', posicao === 0);
+  botaoAumentar.setAttribute('aria-disabled', posicao === tamanhos.length - 1);
+}
+
+function mudarTamanho(novaPosicao) {
+  if (novaPosicao < 0) {
+    anunciar('O texto já está no tamanho mínimo.');
+  } else if (novaPosicao >= tamanhos.length) {
+    anunciar('O texto já está no tamanho máximo.');
+  } else {
+    posicao = novaPosicao;
+    localStorage.setItem('aef-fonte', posicao);
+    aplicarTamanho();
+    anunciar('Tamanho do texto: ' + textoDoTamanho());
+  }
+}
+
+botaoDiminuir.addEventListener('click', function () {
+  mudarTamanho(posicao - 1);
+});
+
+botaoAumentar.addEventListener('click', function () {
+  mudarTamanho(posicao + 1);
+});
+
+botaoPadrao.addEventListener('click', function () {
+  mudarTamanho(posicaoPadrao);
+});
+
+aplicarTamanho();
+
+/* 3. Modo escuro e alto contraste --------------------------- */
+var botaoEscuro = document.getElementById('botao-escuro');
+var botaoContraste = document.getElementById('botao-contraste');
+var escuroLigado = localStorage.getItem('aef-tema') === 'escuro';
+var contrasteLigado = localStorage.getItem('aef-contraste') === 'alto';
+
+function aplicarCores() {
+  if (escuroLigado) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  } else {
+    document.documentElement.removeAttribute('data-theme');
   }
 
-  function gravar(chave, valor) {
-    try {
-      window.localStorage.setItem(chave, valor);
-    } catch (erro) {
-      /* Sem armazenamento: a preferência vale só até recarregar a página. */
-    }
+  if (contrasteLigado) {
+    document.documentElement.setAttribute('data-contrast', 'high');
+  } else {
+    document.documentElement.removeAttribute('data-contrast');
   }
 
-  /* 2. Anúncios ----------------------------------------------------------- */
-  var regiaoAnuncio = document.getElementById('anuncios');
+  // aria-pressed informa ao leitor de tela se o botão está ligado
+  botaoEscuro.setAttribute('aria-pressed', escuroLigado);
+  botaoContraste.setAttribute('aria-pressed', contrasteLigado);
+}
 
-  function anunciar(texto) {
-    if (!regiaoAnuncio) {
-      return;
-    }
-    // Limpa antes para que a mesma frase seja lida de novo se repetida.
-    regiaoAnuncio.textContent = '';
-    window.setTimeout(function () {
-      regiaoAnuncio.textContent = texto;
-    }, 60);
+botaoEscuro.addEventListener('click', function () {
+  escuroLigado = !escuroLigado;
+  localStorage.setItem('aef-tema', escuroLigado ? 'escuro' : 'claro');
+  aplicarCores();
+  anunciar(escuroLigado ? 'Modo escuro ativado.' : 'Modo escuro desativado.');
+});
+
+botaoContraste.addEventListener('click', function () {
+  contrasteLigado = !contrasteLigado;
+  localStorage.setItem('aef-contraste', contrasteLigado ? 'alto' : 'normal');
+  aplicarCores();
+  anunciar(contrasteLigado ? 'Alto contraste ativado.' : 'Alto contraste desativado.');
+});
+
+aplicarCores();
+
+/* 4. Menu em telas pequenas --------------------------------- */
+var botaoMenu = document.querySelector('.menu-botao');
+var menu = document.getElementById('menu-principal');
+
+botaoMenu.hidden = false;
+
+function abrirOuFecharMenu(abrir) {
+  botaoMenu.setAttribute('aria-expanded', abrir);
+  if (abrir) {
+    menu.classList.add('aberto');
+  } else {
+    menu.classList.remove('aberto');
   }
+}
 
-  /* 3. Tamanho do texto --------------------------------------------------- */
-  var NIVEIS_FONTE = [87.5, 100, 112.5, 125, 137.5, 150];
-  var NIVEL_PADRAO = 1;
-  var nivelFonte = parseInt(ler('aef-fonte'), 10);
+botaoMenu.addEventListener('click', function () {
+  var estaAberto = botaoMenu.getAttribute('aria-expanded') === 'true';
+  abrirOuFecharMenu(!estaAberto);
+});
 
-  if (isNaN(nivelFonte) || nivelFonte < 0 || nivelFonte >= NIVEIS_FONTE.length) {
-    nivelFonte = NIVEL_PADRAO;
+// A tecla Esc fecha o menu e devolve o foco para o botão
+menu.addEventListener('keydown', function (evento) {
+  if (evento.key === 'Escape') {
+    abrirOuFecharMenu(false);
+    botaoMenu.focus();
   }
+});
 
-  var botaoDiminuir = document.querySelector('[data-fonte="diminuir"]');
-  var botaoAumentar = document.querySelector('[data-fonte="aumentar"]');
-  var botaoPadrao = document.querySelector('[data-fonte="padrao"]');
-  var valorFonte = document.getElementById('valor-fonte');
+/* 5. Checklist (só existe no Guia prático) ------------------ */
+var checklist = document.getElementById('checklist');
 
-  function aplicarFonte() {
-    var percentual = NIVEIS_FONTE[nivelFonte];
-    raiz.style.fontSize = percentual + '%';
-    if (valorFonte) {
-      valorFonte.textContent = String(percentual).replace('.', ',') + '%';
-    }
-    // aria-disabled mantém o botão focável e informa o limite atingido.
-    if (botaoDiminuir) {
-      botaoDiminuir.setAttribute('aria-disabled', String(nivelFonte === 0));
-    }
-    if (botaoAumentar) {
-      botaoAumentar.setAttribute('aria-disabled', String(nivelFonte === NIVEIS_FONTE.length - 1));
-    }
-  }
+if (checklist) {
+  var itens = checklist.querySelectorAll('input[type="checkbox"]');
+  var salvos = localStorage.getItem('aef-checklist') || '';
 
-  function mudarFonte(novoNivel) {
-    if (novoNivel < 0) {
-      anunciar('O texto já está no tamanho mínimo.');
-      return;
-    }
-    if (novoNivel >= NIVEIS_FONTE.length) {
-      anunciar('O texto já está no tamanho máximo.');
-      return;
-    }
-    nivelFonte = novoNivel;
-    gravar('aef-fonte', String(nivelFonte));
-    aplicarFonte();
-    anunciar('Tamanho do texto: ' + String(NIVEIS_FONTE[nivelFonte]).replace('.', ',') + '%.');
-  }
+  // Marca de novo os itens que estavam salvos
+  itens.forEach(function (item) {
+    item.checked = salvos.includes(item.value);
+  });
 
-  aplicarFonte();
-
-  if (botaoDiminuir && botaoAumentar && botaoPadrao) {
-    botaoDiminuir.addEventListener('click', function () {
-      mudarFonte(nivelFonte - 1);
-    });
-    botaoAumentar.addEventListener('click', function () {
-      mudarFonte(nivelFonte + 1);
-    });
-    botaoPadrao.addEventListener('click', function () {
-      mudarFonte(NIVEL_PADRAO);
-    });
-  }
-
-  /* 4. Modo escuro e alto contraste -------------------------------------- */
-  var botaoEscuro = document.getElementById('botao-escuro');
-  var botaoContraste = document.getElementById('botao-contraste');
-
-  var temaSalvo = ler('aef-tema');
-  var escuroAtivo = temaSalvo
-    ? temaSalvo === 'escuro'
-    : Boolean(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
-  var contrasteAtivo = ler('aef-contraste') === 'alto';
-
-  function aplicarTemas() {
-    if (escuroAtivo) {
-      raiz.setAttribute('data-theme', 'dark');
-    } else {
-      raiz.removeAttribute('data-theme');
-    }
-    if (contrasteAtivo) {
-      raiz.setAttribute('data-contrast', 'high');
-    } else {
-      raiz.removeAttribute('data-contrast');
-    }
-    if (botaoEscuro) {
-      botaoEscuro.setAttribute('aria-pressed', String(escuroAtivo));
-    }
-    if (botaoContraste) {
-      botaoContraste.setAttribute('aria-pressed', String(contrasteAtivo));
-    }
-  }
-
-  aplicarTemas();
-
-  if (botaoEscuro) {
-    botaoEscuro.addEventListener('click', function () {
-      escuroAtivo = !escuroAtivo;
-      gravar('aef-tema', escuroAtivo ? 'escuro' : 'claro');
-      aplicarTemas();
-      anunciar(escuroAtivo ? 'Modo escuro ativado.' : 'Modo escuro desativado.');
-    });
-  }
-
-  if (botaoContraste) {
-    botaoContraste.addEventListener('click', function () {
-      contrasteAtivo = !contrasteAtivo;
-      gravar('aef-contraste', contrasteAtivo ? 'alto' : 'normal');
-      aplicarTemas();
-      anunciar(contrasteAtivo ? 'Alto contraste ativado.' : 'Alto contraste desativado.');
-    });
-  }
-
-  // A barra só aparece quando o JavaScript funciona: assim nenhum botão
-  // aparenta funcionar sem de fato funcionar.
-  var barraPreferencias = document.getElementById('preferencias');
-  if (barraPreferencias) {
-    barraPreferencias.hidden = false;
-  }
-
-  /* 5. Menu em telas pequenas -------------------------------------------- */
-  var botaoMenu = document.querySelector('.menu-botao');
-  var menuPrincipal = document.getElementById('menu-principal');
-
-  function definirMenu(aberto) {
-    botaoMenu.setAttribute('aria-expanded', String(aberto));
-    menuPrincipal.classList.toggle('aberto', aberto);
-  }
-
-  if (botaoMenu && menuPrincipal) {
-    botaoMenu.hidden = false;
-    definirMenu(false);
-
-    botaoMenu.addEventListener('click', function () {
-      definirMenu(botaoMenu.getAttribute('aria-expanded') !== 'true');
-    });
-
-    // Esc fecha o menu e devolve o foco ao botão.
-    menuPrincipal.addEventListener('keydown', function (evento) {
-      if (evento.key === 'Escape' && botaoMenu.getAttribute('aria-expanded') === 'true') {
-        definirMenu(false);
-        botaoMenu.focus();
+  function atualizarChecklist() {
+    var marcados = [];
+    itens.forEach(function (item) {
+      if (item.checked) {
+        marcados.push(item.value);
       }
     });
-  }
 
-  /* 6. Checklist ---------------------------------------------------------- */
-  var checklist = document.getElementById('checklist');
-
-  if (checklist) {
-    var itens = checklist.querySelectorAll('input[type="checkbox"]');
-    var textoProgresso = document.getElementById('checklist-status');
-    var barraProgresso = document.getElementById('checklist-barra');
-    var salvos = [];
-
-    try {
-      salvos = JSON.parse(ler('aef-checklist') || '[]');
-    } catch (erro) {
-      salvos = [];
+    var porcentagem = Math.round(marcados.length / itens.length * 100);
+    var frase = marcados.length + ' de ' + itens.length + ' itens verificados (' + porcentagem + '%).';
+    if (marcados.length === itens.length) {
+      frase = frase + ' Checklist completo!';
     }
 
-    Array.prototype.forEach.call(itens, function (item) {
-      item.checked = salvos.indexOf(item.value) !== -1;
+    // #checklist-status tem role="status", então a frase é lida automaticamente
+    document.getElementById('checklist-status').textContent = frase;
+    document.getElementById('checklist-barra').value = marcados.length;
+    localStorage.setItem('aef-checklist', marcados.join(','));
+  }
+
+  checklist.addEventListener('change', atualizarChecklist);
+
+  // O botão "Desmarcar" é do tipo reset: espera o formulário limpar e atualiza
+  checklist.addEventListener('reset', function () {
+    setTimeout(atualizarChecklist, 0);
+  });
+
+  atualizarChecklist();
+}
+
+/* 6. Quiz (só existe no Guia prático) ----------------------- */
+var quiz = document.getElementById('quiz');
+
+// Resposta certa e explicação de cada pergunta
+var gabarito = {
+  q1: { certa: 'b', explicacao: 'O elemento <button> já recebe foco, funciona com Enter e Espaço e é anunciado como botão. Uma <div> com clique não faz nada disso sozinha.' },
+  q2: { certa: 'a', explicacao: 'O alt vazio indica que a imagem é decorativa, e o leitor de tela a ignora. Sem o atributo alt, alguns leitores leem o nome do arquivo.' },
+  q3: { certa: 'b', explicacao: 'No nível AA da WCAG, texto em tamanho normal precisa de contraste mínimo de 4,5:1 com o fundo. Texto grande pode usar 3:1.' },
+  q4: { certa: 'c', explicacao: 'O piso tátil direcional forma uma linha-guia. O piso de alerta avisa sobre mudanças, como o início de uma escada ou de uma travessia.' },
+  q5: { certa: 'b', explicacao: 'A legenda para surdos e ensurdecidos descreve os sons que ajudam a entender a cena, além de mostrar quem está falando.' }
+};
+
+var perguntas = ['q1', 'q2', 'q3', 'q4', 'q5'];
+
+function limparQuiz() {
+  perguntas.forEach(function (nome) {
+    document.getElementById(nome + '-grupo').classList.remove('com-erro');
+    document.getElementById(nome + '-erro').hidden = true;
+    var retorno = document.getElementById(nome + '-retorno');
+    retorno.hidden = true;
+    retorno.className = 'feedback';
+    retorno.textContent = '';
+  });
+  var resultado = document.getElementById('quiz-resultado');
+  resultado.className = 'mensagem';
+  resultado.innerHTML = '';
+}
+
+if (quiz) {
+  var resultado = document.getElementById('quiz-resultado');
+
+  quiz.addEventListener('submit', function (evento) {
+    evento.preventDefault(); // não recarrega a página
+    limparQuiz();
+
+    // 1º passo: descobrir quais perguntas ficaram sem resposta
+    var faltando = [];
+    perguntas.forEach(function (nome) {
+      var marcada = quiz.querySelector('input[name="' + nome + '"]:checked');
+      if (!marcada) {
+        faltando.push(nome);
+        document.getElementById(nome + '-grupo').classList.add('com-erro');
+        document.getElementById(nome + '-erro').hidden = false;
+      }
     });
 
-    var atualizarChecklist = function () {
-      var marcados = [];
-      Array.prototype.forEach.call(itens, function (item) {
-        if (item.checked) {
-          marcados.push(item.value);
-        }
+    if (faltando.length > 0) {
+      var lista = '';
+      faltando.forEach(function (nome) {
+        lista += '<li>' + document.querySelector('#' + nome + '-grupo legend').textContent + '</li>';
       });
-      var total = itens.length;
-      var feitos = marcados.length;
-      var percentual = Math.round((feitos / total) * 100);
-      var frase = feitos + ' de ' + total + ' itens verificados (' + percentual + '%).';
-      if (feitos === total) {
-        frase += ' Checklist completo — ótimo trabalho!';
-      }
-      barraProgresso.value = feitos;
-      barraProgresso.max = total;
-      gravar('aef-checklist', JSON.stringify(marcados));
-      // O parágrafo tem role="status": o leitor de tela lê cada atualização.
-      textoProgresso.textContent = frase;
-    };
-
-    checklist.addEventListener('change', atualizarChecklist);
-
-    checklist.addEventListener('reset', function () {
-      // O evento reset acontece antes de os campos serem limpos.
-      window.setTimeout(atualizarChecklist, 0);
-    });
-
-    atualizarChecklist();
-  }
-
-  /* 7. Quiz --------------------------------------------------------------- */
-  var quiz = document.getElementById('quiz');
-
-  var GABARITO = {
-    q1: {
-      correta: 'b',
-      textoCorreto: '<button>',
-      explicacao: 'O elemento <button> já é focável, responde a Enter e Espaço e é anunciado como botão. Uma <div> com evento de clique não oferece nada disso sem trabalho extra.'
-    },
-    q2: {
-      correta: 'a',
-      textoCorreto: 'alt="" (atributo vazio)',
-      explicacao: 'O alt vazio indica que a imagem é decorativa, e o leitor de tela a ignora. Sem o atributo alt, alguns leitores leem o nome do arquivo.'
-    },
-    q3: {
-      correta: 'b',
-      textoCorreto: '4,5:1',
-      explicacao: 'No nível AA da WCAG, texto em tamanho normal precisa de contraste mínimo de 4,5:1 com o fundo. Texto grande pode usar 3:1.'
-    },
-    q4: {
-      correta: 'c',
-      textoCorreto: 'Orientar o deslocamento de quem usa bengala ou percebe o piso pelos pés',
-      explicacao: 'O piso tátil direcional forma uma linha-guia; o de alerta avisa sobre mudanças, como o início de uma escada ou a borda de uma travessia.'
-    },
-    q5: {
-      correta: 'b',
-      textoCorreto: 'As falas e também os sons relevantes, como risadas, música e alarmes',
-      explicacao: 'A legenda para surdos e ensurdecidos (LSE) descreve os sons que ajudam a entender a cena, além de identificar quem fala.'
+      resultado.className = 'mensagem mensagem--erro';
+      resultado.innerHTML = '<h3>Faltam ' + faltando.length + ' resposta(s)</h3>' +
+        '<p>Responda estas perguntas e envie de novo:</p><ul>' + lista + '</ul>';
+      resultado.focus(); // o leitor de tela lê a mensagem
+      return;
     }
-  };
 
-  function limparQuiz() {
-    Object.keys(GABARITO).forEach(function (nome) {
-      var grupo = document.getElementById(nome + '-grupo');
-      var erro = document.getElementById(nome + '-erro');
+    // 2º passo: corrigir cada pergunta e mostrar a explicação
+    var acertos = 0;
+    perguntas.forEach(function (nome) {
+      var escolhida = quiz.querySelector('input[name="' + nome + '"]:checked').value;
+      var certa = gabarito[nome].certa;
+      var textoCerto = document.querySelector('label[for="' + nome + '-' + certa + '"]').textContent;
       var retorno = document.getElementById(nome + '-retorno');
-      grupo.classList.remove('com-erro');
-      erro.hidden = true;
-      retorno.hidden = true;
-      retorno.textContent = '';
-      retorno.className = 'feedback';
-      Array.prototype.forEach.call(grupo.querySelectorAll('input'), function (opcao) {
-        opcao.removeAttribute('aria-describedby');
-      });
-    });
-  }
+      var titulo = document.createElement('strong');
+      var explicacao = document.createElement('span');
 
-  function criarElemento(tag, texto) {
-    var elemento = document.createElement(tag);
-    if (texto) {
-      elemento.textContent = texto;
-    }
-    return elemento;
-  }
-
-  if (quiz) {
-    var resultado = document.getElementById('quiz-resultado');
-
-    quiz.addEventListener('submit', function (evento) {
-      evento.preventDefault();
-      limparQuiz();
-      resultado.textContent = '';
-
-      var semResposta = [];
-      var acertos = 0;
-      var nomes = Object.keys(GABARITO);
-
-      nomes.forEach(function (nome) {
-        if (!quiz.querySelector('input[name="' + nome + '"]:checked')) {
-          semResposta.push(nome);
-        }
-      });
-
-      // Falta resposta: mostra resumo com links e mensagem em cada pergunta.
-      if (semResposta.length > 0) {
-        resultado.className = 'mensagem mensagem--erro';
-        var tituloErro = semResposta.length === 1
-          ? 'Falta responder 1 pergunta'
-          : 'Faltam respostas em ' + semResposta.length + ' perguntas';
-        resultado.appendChild(criarElemento('h3', tituloErro));
-        resultado.appendChild(criarElemento('p', 'Escolha uma alternativa em cada pergunta abaixo e envie novamente:'));
-        var lista = criarElemento('ul');
-
-        semResposta.forEach(function (nome) {
-          var grupo = document.getElementById(nome + '-grupo');
-          var erro = document.getElementById(nome + '-erro');
-          var primeiraOpcao = grupo.querySelector('input');
-          grupo.classList.add('com-erro');
-          erro.hidden = false;
-          Array.prototype.forEach.call(grupo.querySelectorAll('input'), function (opcao) {
-            opcao.setAttribute('aria-describedby', erro.id);
-          });
-
-          var item = criarElemento('li');
-          var link = criarElemento('a', grupo.querySelector('legend').textContent);
-          link.href = '#' + primeiraOpcao.id;
-          link.addEventListener('click', function (cliqueEvento) {
-            cliqueEvento.preventDefault();
-            primeiraOpcao.focus();
-          });
-          item.appendChild(link);
-          lista.appendChild(item);
-        });
-
-        resultado.appendChild(lista);
-        resultado.focus();
-        return;
+      if (escolhida === certa) {
+        acertos++;
+        retorno.className = 'feedback feedback--certo';
+        titulo.textContent = '✔ Resposta correta.';
+      } else {
+        retorno.className = 'feedback feedback--errado';
+        titulo.textContent = '✘ Resposta incorreta. A certa é: ' + textoCerto + '.';
       }
 
-      // Todas respondidas: corrige cada pergunta e mostra explicação.
-      nomes.forEach(function (nome) {
-        var escolhida = quiz.querySelector('input[name="' + nome + '"]:checked').value;
-        var dados = GABARITO[nome];
-        var retorno = document.getElementById(nome + '-retorno');
-        var acertou = escolhida === dados.correta;
-        if (acertou) {
-          acertos += 1;
-        }
-        retorno.className = 'feedback ' + (acertou ? 'feedback--certo' : 'feedback--errado');
-        retorno.appendChild(criarElemento('strong', acertou
-          ? '✔ Resposta correta.'
-          : '✘ Resposta incorreta. A alternativa certa é: ' + dados.textoCorreto + '.'));
-        retorno.appendChild(criarElemento('span', dados.explicacao));
-        retorno.hidden = false;
-      });
-
-      resultado.className = 'mensagem mensagem--sucesso';
-      resultado.appendChild(criarElemento('h3', 'Resultado: você acertou ' + acertos + ' de ' + nomes.length + ' perguntas'));
-      var comentario = acertos === nomes.length
-        ? 'Excelente! Você dominou os conceitos principais.'
-        : 'Leia a explicação abaixo de cada pergunta para revisar os pontos em que errou. Você pode mudar as respostas e enviar de novo.';
-      resultado.appendChild(criarElemento('p', comentario));
-      resultado.focus();
+      explicacao.textContent = gabarito[nome].explicacao;
+      retorno.appendChild(titulo);
+      retorno.appendChild(explicacao);
+      retorno.hidden = false;
     });
 
-    quiz.addEventListener('reset', function () {
-      limparQuiz();
-      resultado.textContent = '';
-      resultado.className = 'mensagem';
-      anunciar('Quiz reiniciado. Todas as respostas foram apagadas.');
-    });
-  }
-})();
+    resultado.className = 'mensagem mensagem--sucesso';
+    resultado.innerHTML = '<h3>Resultado: você acertou ' + acertos + ' de ' + perguntas.length + ' perguntas</h3>' +
+      '<p>Veja a explicação abaixo de cada pergunta.</p>';
+    resultado.focus();
+  });
+
+  quiz.addEventListener('reset', function () {
+    limparQuiz();
+    anunciar('Quiz reiniciado.');
+  });
+}

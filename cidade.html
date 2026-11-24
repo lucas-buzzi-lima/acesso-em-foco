@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Na cidade: calçadas, travessias e transporte acessíveis — Acesso em Foco</title>
   <meta name="description" content="O papel de calçadas contínuas, travessias seguras, transporte, rampas e informação multissensorial na circulação urbana.">
-  <meta name="theme-color" content="#0a3c58">
-  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <!-- O site não tem ícone; isto evita que o navegador procure um favicon.ico -->
+  <link rel="icon" href="data:,">
   <link rel="stylesheet" href="assets/styles.css">
   <script src="assets/app.js" defer></script>
 </head>
@@ -16,16 +16,10 @@
   <header class="site-header">
     <div class="container header-topo">
       <a class="marca" href="index.html">
-        <img src="assets/logo.svg" alt="" width="44" height="44">
-        <span>
-          <span class="marca-nome">Acesso em Foco</span>
-          <span class="marca-slogan">Inclusão em cada detalhe</span>
-        </span>
+        <span class="marca-nome">Acesso em Foco</span>
+        <span class="marca-slogan">Inclusão em cada detalhe</span>
       </a>
-      <button type="button" class="menu-botao" aria-expanded="false" aria-controls="menu-principal" hidden>
-        <span class="menu-botao-icone" aria-hidden="true"></span>
-        Menu
-      </button>
+      <button type="button" class="menu-botao" aria-expanded="false" aria-controls="menu-principal" hidden>Menu</button>
     </div>
 
     <nav class="menu-principal" id="menu-principal" aria-label="Principal">
@@ -63,22 +57,17 @@
   <p id="anuncios" class="sr-only" role="status" aria-live="polite"></p>
 
   <main id="conteudo" tabindex="-1">
-<section class="hero" aria-labelledby="titulo-pagina">
-      <div class="container hero-grade">
-        <div>
-          <nav class="trilha" aria-label="Você está em">
-            <ol>
-              <li><a href="index.html">Início</a></li>
-              <li><span aria-current="page">Na cidade</span></li>
-            </ol>
-          </nav>
-          <p class="sobretitulo">Artigo · Na cidade</p>
-          <h1 id="titulo-pagina">Uma cidade para ir e voltar com segurança</h1>
-          <p class="lead">Ir à escola, ao trabalho, ao posto de saúde ou à praça depende de uma corrente de elementos: calçada, rampa, travessia, ponto de ônibus, veículo e informação. Se um único elo falha, o trajeto inteiro pode se tornar impossível.</p>
-        </div>
-        <figure class="ilustracao">
-          <img src="assets/cidade.svg" alt="Ilustração de rua com faixa de pedestres, calçada com piso tátil amarelo e rampa rebaixada, semáforo que emite som e ônibus de piso baixo com porta larga." width="400" height="300">
-        </figure>
+    <section class="hero" aria-labelledby="titulo-pagina">
+      <div class="container">
+        <nav class="trilha" aria-label="Você está em">
+          <ol>
+            <li><a href="index.html">Início</a></li>
+            <li><span aria-current="page">Na cidade</span></li>
+          </ol>
+        </nav>
+        <p class="sobretitulo">Artigo · Na cidade</p>
+        <h1 id="titulo-pagina">Uma cidade para ir e voltar com segurança</h1>
+        <p class="lead">Ir à escola, ao trabalho, ao posto de saúde ou à praça depende de uma corrente de elementos: calçada, rampa, travessia, ponto de ônibus, veículo e informação. Se um único elo falha, o trajeto inteiro pode se tornar impossível.</p>
       </div>
     </section>
 

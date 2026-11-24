@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Guia prático: checklist, quiz e referências — Acesso em Foco</title>
   <meta name="description" content="Checklist para avaliar a acessibilidade do portal, quiz com correção, recursos adotados, mapa do site e referências confiáveis.">
-  <meta name="theme-color" content="#0a3c58">
-  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <!-- O site não tem ícone; isto evita que o navegador procure um favicon.ico -->
+  <link rel="icon" href="data:,">
   <link rel="stylesheet" href="assets/styles.css">
   <script src="assets/app.js" defer></script>
 </head>
@@ -16,16 +16,10 @@
   <header class="site-header">
     <div class="container header-topo">
       <a class="marca" href="index.html">
-        <img src="assets/logo.svg" alt="" width="44" height="44">
-        <span>
-          <span class="marca-nome">Acesso em Foco</span>
-          <span class="marca-slogan">Inclusão em cada detalhe</span>
-        </span>
+        <span class="marca-nome">Acesso em Foco</span>
+        <span class="marca-slogan">Inclusão em cada detalhe</span>
       </a>
-      <button type="button" class="menu-botao" aria-expanded="false" aria-controls="menu-principal" hidden>
-        <span class="menu-botao-icone" aria-hidden="true"></span>
-        Menu
-      </button>
+      <button type="button" class="menu-botao" aria-expanded="false" aria-controls="menu-principal" hidden>Menu</button>
     </div>
 
     <nav class="menu-principal" id="menu-principal" aria-label="Principal">
@@ -63,22 +57,17 @@
   <p id="anuncios" class="sr-only" role="status" aria-live="polite"></p>
 
   <main id="conteudo" tabindex="-1">
-<section class="hero" aria-labelledby="titulo-pagina">
-      <div class="container hero-grade">
-        <div>
-          <nav class="trilha" aria-label="Você está em">
-            <ol>
-              <li><a href="index.html">Início</a></li>
-              <li><span aria-current="page">Guia prático</span></li>
-            </ol>
-          </nav>
-          <p class="sobretitulo">Guia prático</p>
-          <h1 id="titulo-pagina">Teste, pratique e aprofunde</h1>
-          <p class="lead">Use o checklist para avaliar este próprio portal com o teclado, o zoom e os ajustes de leitura. Depois, revise os conceitos no quiz e consulte as referências para continuar estudando.</p>
-        </div>
-        <figure class="ilustracao">
-          <img src="assets/guia.svg" alt="" width="400" height="300">
-        </figure>
+    <section class="hero" aria-labelledby="titulo-pagina">
+      <div class="container">
+        <nav class="trilha" aria-label="Você está em">
+          <ol>
+            <li><a href="index.html">Início</a></li>
+            <li><span aria-current="page">Guia prático</span></li>
+          </ol>
+        </nav>
+        <p class="sobretitulo">Guia prático</p>
+        <h1 id="titulo-pagina">Teste, pratique e aprofunde</h1>
+        <p class="lead">Use o checklist para avaliar este próprio portal com o teclado, o zoom e os ajustes de leitura. Depois, revise os conceitos no quiz e consulte as referências para continuar estudando.</p>
       </div>
     </section>
 
@@ -134,8 +123,8 @@
               </div>
               <div class="opcao">
                 <input type="checkbox" id="c7" name="checklist" value="c7">
-                <label for="c7">Imagens descritas
-                  <span class="opcao-dica">As ilustrações dos artigos têm descrição em texto alternativo; as decorativas são ignoradas pelo leitor de tela.</span></label>
+                <label for="c7">Links descritivos
+                  <span class="opcao-dica">Os textos dos links dizem para onde eles levam, mesmo quando lidos fora do parágrafo.</span></label>
               </div>
               <div class="opcao">
                 <input type="checkbox" id="c8" name="checklist" value="c8">
@@ -229,7 +218,6 @@
             <li>Menu móvel com botão nativo, <code>aria-expanded</code> e fechamento por Esc.</li>
             <li>Cores escolhidas para contraste mínimo de 4,5:1 no texto.</li>
             <li>Layout responsivo sem rolagem horizontal a partir de 320 pixels.</li>
-            <li>Ilustrações SVG locais com texto alternativo ou marcadas como decorativas.</li>
             <li>Formulários com <code>fieldset</code>, <code>legend</code> e rótulos associados.</li>
             <li>Resultados dinâmicos anunciados com <code>role="status"</code> ou movendo o foco.</li>
             <li>Respeito à preferência do sistema por menos movimento.</li>

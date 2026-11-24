@@ -53,8 +53,8 @@ Grave a tela com áudio (por exemplo, com a Barra de Jogo do Windows, `Win + Alt
 **Na tela:** Guia prático.
 
 1. Marque três itens do checklist com `Espaço` e mostre o texto “3 de 8 itens verificados” e a barra de progresso.
-2. No quiz, responda só uma pergunta e clique em **Corrigir respostas**: mostre o resumo das perguntas que faltam e a mensagem em cada uma.
-3. Clique em um link do resumo para ir até a pergunta. Responda todas, errando uma de propósito, e envie: mostre o resultado e as explicações.
+2. No quiz, responda só uma pergunta e clique em **Corrigir respostas**: mostre o aviso com a lista das perguntas que faltam e a mensagem em cada uma.
+3. Responda todas, errando uma de propósito, e envie: mostre o resultado e as explicações.
 4. Clique em **Recomeçar o quiz**.
 
 **Fala sugerida:**

@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Educação: aprendizagem inclusiva na prática — Acesso em Foco</title>
   <meta name="description" content="Formatos alternativos de material, plataformas acessíveis, adaptações razoáveis, participação e boas práticas para professores e estudantes.">
-  <meta name="theme-color" content="#0a3c58">
-  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <!-- O site não tem ícone; isto evita que o navegador procure um favicon.ico -->
+  <link rel="icon" href="data:,">
   <link rel="stylesheet" href="assets/styles.css">
   <script src="assets/app.js" defer></script>
 </head>
@@ -16,16 +16,10 @@
   <header class="site-header">
     <div class="container header-topo">
       <a class="marca" href="index.html">
-        <img src="assets/logo.svg" alt="" width="44" height="44">
-        <span>
-          <span class="marca-nome">Acesso em Foco</span>
-          <span class="marca-slogan">Inclusão em cada detalhe</span>
-        </span>
+        <span class="marca-nome">Acesso em Foco</span>
+        <span class="marca-slogan">Inclusão em cada detalhe</span>
       </a>
-      <button type="button" class="menu-botao" aria-expanded="false" aria-controls="menu-principal" hidden>
-        <span class="menu-botao-icone" aria-hidden="true"></span>
-        Menu
-      </button>
+      <button type="button" class="menu-botao" aria-expanded="false" aria-controls="menu-principal" hidden>Menu</button>
     </div>
 
     <nav class="menu-principal" id="menu-principal" aria-label="Principal">
@@ -63,22 +57,17 @@
   <p id="anuncios" class="sr-only" role="status" aria-live="polite"></p>
 
   <main id="conteudo" tabindex="-1">
-<section class="hero" aria-labelledby="titulo-pagina">
-      <div class="container hero-grade">
-        <div>
-          <nav class="trilha" aria-label="Você está em">
-            <ol>
-              <li><a href="index.html">Início</a></li>
-              <li><span aria-current="page">Educação</span></li>
-            </ol>
-          </nav>
-          <p class="sobretitulo">Artigo · Educação</p>
-          <h1 id="titulo-pagina">Aprender juntos, cada um do seu jeito</h1>
-          <p class="lead">Em uma turma, cada estudante chega com uma forma diferente de ler, ouvir, se concentrar e mostrar o que aprendeu. A educação inclusiva planeja aulas e materiais que funcionem para essa diversidade desde o início.</p>
-        </div>
-        <figure class="ilustracao">
-          <img src="assets/educacao.svg" alt="Ilustração de um livro aberto com texto ampliado na página da esquerda e pontos em braile na página da direita, com um fone de ouvido acima, representando a versão em áudio." width="400" height="300">
-        </figure>
+    <section class="hero" aria-labelledby="titulo-pagina">
+      <div class="container">
+        <nav class="trilha" aria-label="Você está em">
+          <ol>
+            <li><a href="index.html">Início</a></li>
+            <li><span aria-current="page">Educação</span></li>
+          </ol>
+        </nav>
+        <p class="sobretitulo">Artigo · Educação</p>
+        <h1 id="titulo-pagina">Aprender juntos, cada um do seu jeito</h1>
+        <p class="lead">Em uma turma, cada estudante chega com uma forma diferente de ler, ouvir, se concentrar e mostrar o que aprendeu. A educação inclusiva planeja aulas e materiais que funcionem para essa diversidade desde o início.</p>
       </div>
     </section>
 

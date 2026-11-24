@@ -16,9 +16,8 @@ acesso-em-foco/
 ├── digital.html        Mundo digital (WCAG, HTML semântico, foco, contraste)
 ├── guia.html           Guia prático: checklist, quiz, recursos, mapa do site e referências
 ├── assets/
-│   ├── styles.css      Estilos únicos de todas as páginas (tokens de cor, temas, componentes)
-│   ├── app.js          Fonte A−/A+/Padrão, modo escuro, alto contraste, menu, checklist e quiz
-│   └── *.svg           Logo e ilustrações originais
+│   ├── styles.css      Estilos de todas as páginas (cores em variáveis, temas, layout)
+│   └── app.js          Fonte A−/A+/Padrão, modo escuro, alto contraste, menu, checklist e quiz
 ├── docs/
 │   ├── ROTEIRO_VIDEO.md     Roteiro do vídeo de 3 a 5 minutos
 │   └── CHECKLIST_TESTES.md  Testes executados, resultados e limitações
@@ -66,15 +65,14 @@ Guia oficial: <https://docs.github.com/en/pages/quickstart>
 | Link “Pular para o conteúdo” | início do `<body>`; estilo `.skip-link` |
 | Foco visível em todos os elementos | `:focus-visible` em `styles.css` |
 | Página atual no menu com estilo e `aria-current="page"` | menu de cada página; `.menu a[aria-current]` |
-| Botões A−, A+ e Padrão (87,5% a 150%), valor exibido e anunciado | `app.js`, parte 3 |
-| Modo escuro e alto contraste com `aria-pressed` e `localStorage` | `app.js`, parte 4; temas em `styles.css` |
-| Menu móvel com botão nativo, `aria-expanded` e tecla Esc | `app.js`, parte 5 |
-| Checklist com 8 itens, progresso em texto (`role="status"`) e barra | `guia.html`; `app.js`, parte 6 |
-| Quiz com 5 perguntas, `fieldset`/`legend`, resumo de erros, correção e explicações | `guia.html`; `app.js`, parte 7 |
-| Contraste mínimo de 4,5:1 nos textos (claro, escuro e alto contraste) | tokens em `:root` |
-| Layout responsivo sem rolagem horizontal a partir de 320 px | `@media` em `styles.css` |
-| `prefers-reduced-motion` e `forced-colors` | final de `styles.css` |
-| Imagens informativas com `alt` descritivo; decorativas com `alt=""` | ilustrações dos artigos e cartões |
+| Botões A−, A+ e Padrão (87,5% a 150%), valor exibido e anunciado | `app.js`, parte 2 |
+| Modo escuro e alto contraste com `aria-pressed` e `localStorage` | `app.js`, parte 3; cores na parte 1 do `styles.css` |
+| Menu móvel com botão nativo, `aria-expanded` e tecla Esc | `app.js`, parte 4 |
+| Checklist com 8 itens, progresso em texto (`role="status"`) e barra | `guia.html`; `app.js`, parte 5 |
+| Quiz com 5 perguntas, `fieldset`/`legend`, aviso de respostas faltando, correção e explicações | `guia.html`; `app.js`, parte 6 |
+| Contraste mínimo de 4,5:1 nos textos (claro, escuro e alto contraste) | variáveis de cor no início do `styles.css` |
+| Layout responsivo sem rolagem horizontal a partir de 320 px | `@media` no final do `styles.css` |
+| Transições só para quem não pediu ao sistema para reduzir animações (`prefers-reduced-motion`) | final do `styles.css` |
 | Controles que dependem de JavaScript só aparecem quando ele funciona | atributo `hidden` removido por `app.js` |
 
 ## Como testar

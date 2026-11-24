@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Acesso em Foco — Acessibilidade no cotidiano</title>
   <meta name="description" content="Portal educativo com artigos sobre acessibilidade em casa, na cidade, na comunicação, na educação e no mundo digital.">
-  <meta name="theme-color" content="#0a3c58">
-  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <!-- O site não tem ícone; isto evita que o navegador procure um favicon.ico -->
+  <link rel="icon" href="data:,">
   <link rel="stylesheet" href="assets/styles.css">
   <script src="assets/app.js" defer></script>
 </head>
@@ -16,16 +16,10 @@
   <header class="site-header">
     <div class="container header-topo">
       <a class="marca" href="index.html">
-        <img src="assets/logo.svg" alt="" width="44" height="44">
-        <span>
-          <span class="marca-nome">Acesso em Foco</span>
-          <span class="marca-slogan">Inclusão em cada detalhe</span>
-        </span>
+        <span class="marca-nome">Acesso em Foco</span>
+        <span class="marca-slogan">Inclusão em cada detalhe</span>
       </a>
-      <button type="button" class="menu-botao" aria-expanded="false" aria-controls="menu-principal" hidden>
-        <span class="menu-botao-icone" aria-hidden="true"></span>
-        Menu
-      </button>
+      <button type="button" class="menu-botao" aria-expanded="false" aria-controls="menu-principal" hidden>Menu</button>
     </div>
 
     <nav class="menu-principal" id="menu-principal" aria-label="Principal">
@@ -63,20 +57,15 @@
   <p id="anuncios" class="sr-only" role="status" aria-live="polite"></p>
 
   <main id="conteudo" tabindex="-1">
-<section class="hero" aria-labelledby="titulo-pagina">
-      <div class="container hero-grade">
-        <div>
-          <p class="sobretitulo">Portal educativo</p>
-          <h1 id="titulo-pagina">Acessibilidade no cotidiano, explicada com clareza</h1>
-          <p class="lead">O Acesso em Foco reúne artigos sobre como pequenas escolhas em casa, na rua, na sala de aula, nas conversas e nas telas ampliam a autonomia das pessoas. Aqui você encontra conceitos, exemplos do dia a dia e ações que podem ser aplicadas hoje.</p>
-          <div class="acoes">
-            <a class="botao" href="#temas">Conhecer os cinco temas</a>
-            <a class="botao botao--secundario" href="guia.html">Abrir o guia prático</a>
-          </div>
+    <section class="hero" aria-labelledby="titulo-pagina">
+      <div class="container">
+        <p class="sobretitulo">Portal educativo</p>
+        <h1 id="titulo-pagina">Acessibilidade no cotidiano, explicada com clareza</h1>
+        <p class="lead">O Acesso em Foco reúne artigos sobre como pequenas escolhas em casa, na rua, na sala de aula, nas conversas e nas telas ampliam a autonomia das pessoas. Aqui você encontra conceitos, exemplos do dia a dia e ações que podem ser aplicadas hoje.</p>
+        <div class="acoes">
+          <a class="botao" href="#temas">Conhecer os cinco temas</a>
+          <a class="botao botao--secundario" href="guia.html">Abrir o guia prático</a>
         </div>
-        <figure class="ilustracao">
-          <img src="assets/hero.svg" alt="" width="480" height="360">
-        </figure>
       </div>
     </section>
 
@@ -89,21 +78,18 @@
         <ul class="grade-cartoes">
           <li>
             <article class="cartao">
-              <span class="cartao-numero" aria-hidden="true">01</span>
               <h3>Diz respeito a muita gente</h3>
               <p>Pessoas com deficiência física, visual, auditiva, intelectual ou psicossocial encontram barreiras diárias que poderiam ser evitadas com planejamento. Remover essas barreiras é uma questão de direito e de participação social.</p>
             </article>
           </li>
           <li>
             <article class="cartao">
-              <span class="cartao-numero" aria-hidden="true">02</span>
               <h3>Todo mundo precisa em algum momento</h3>
               <p>Um braço engessado, a recuperação de uma cirurgia, um carrinho de bebê, a visão que muda com a idade ou um ambiente barulhento: em várias fases da vida, qualquer pessoa se beneficia de soluções acessíveis.</p>
             </article>
           </li>
           <li>
             <article class="cartao">
-              <span class="cartao-numero" aria-hidden="true">03</span>
               <h3>Começa nos detalhes</h3>
               <p>Uma rampa bem inclinada, uma legenda no vídeo, um botão com nome claro ou um texto em linguagem simples custam pouco quando pensados desde o início — e fazem grande diferença para quem depende deles.</p>
             </article>
@@ -118,43 +104,37 @@
         </div>
         <ul class="grade-cartoes">
           <li>
-            <article class="cartao cartao--link">
-              <img class="cartao-icone" src="assets/casa.svg" alt="" width="56" height="56">
+            <article class="cartao">
               <h3><a href="casa.html">Em casa</a></h3>
               <p>Circulação entre móveis, iluminação, comandos fáceis de perceber, banheiro e cozinha mais seguros.</p>
             </article>
           </li>
           <li>
-            <article class="cartao cartao--link">
-              <img class="cartao-icone" src="assets/cidade.svg" alt="" width="56" height="56">
+            <article class="cartao">
               <h3><a href="cidade.html">Na cidade</a></h3>
               <p>Calçadas contínuas, travessias, transporte, rampas e informação que chega por mais de um sentido.</p>
             </article>
           </li>
           <li>
-            <article class="cartao cartao--link">
-              <img class="cartao-icone" src="assets/comunicacao.svg" alt="" width="56" height="56">
+            <article class="cartao">
               <h3><a href="comunicacao.html">Comunicação</a></h3>
               <p>Legendas, transcrições, audiodescrição, Libras e linguagem simples para que a mensagem seja compreendida.</p>
             </article>
           </li>
           <li>
-            <article class="cartao cartao--link">
-              <img class="cartao-icone" src="assets/educacao.svg" alt="" width="56" height="56">
+            <article class="cartao">
               <h3><a href="educacao.html">Educação</a></h3>
               <p>Materiais em formatos alternativos, plataformas acessíveis, adaptações razoáveis e participação de todos.</p>
             </article>
           </li>
           <li>
-            <article class="cartao cartao--link">
-              <img class="cartao-icone" src="assets/digital.svg" alt="" width="56" height="56">
+            <article class="cartao">
               <h3><a href="digital.html">Mundo digital</a></h3>
               <p>Teclado, leitores de tela, HTML semântico, contraste, formulários e os quatro princípios da WCAG.</p>
             </article>
           </li>
           <li>
-            <article class="cartao cartao--link">
-              <img class="cartao-icone" src="assets/guia.svg" alt="" width="56" height="56">
+            <article class="cartao">
               <h3><a href="guia.html">Guia prático</a></h3>
               <p>Checklist para avaliar o site, quiz com correção, mapa do site e referências confiáveis.</p>
             </article>

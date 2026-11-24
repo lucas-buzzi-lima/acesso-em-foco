@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mundo digital: teclado, leitores de tela e WCAG — Acesso em Foco</title>
   <meta name="description" content="Os quatro princípios da WCAG explicados com exemplos de HTML semântico, foco, rótulos, texto alternativo, contraste e feedback de interface.">
-  <meta name="theme-color" content="#0a3c58">
-  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <!-- O site não tem ícone; isto evita que o navegador procure um favicon.ico -->
+  <link rel="icon" href="data:,">
   <link rel="stylesheet" href="assets/styles.css">
   <script src="assets/app.js" defer></script>
 </head>
@@ -16,16 +16,10 @@
   <header class="site-header">
     <div class="container header-topo">
       <a class="marca" href="index.html">
-        <img src="assets/logo.svg" alt="" width="44" height="44">
-        <span>
-          <span class="marca-nome">Acesso em Foco</span>
-          <span class="marca-slogan">Inclusão em cada detalhe</span>
-        </span>
+        <span class="marca-nome">Acesso em Foco</span>
+        <span class="marca-slogan">Inclusão em cada detalhe</span>
       </a>
-      <button type="button" class="menu-botao" aria-expanded="false" aria-controls="menu-principal" hidden>
-        <span class="menu-botao-icone" aria-hidden="true"></span>
-        Menu
-      </button>
+      <button type="button" class="menu-botao" aria-expanded="false" aria-controls="menu-principal" hidden>Menu</button>
     </div>
 
     <nav class="menu-principal" id="menu-principal" aria-label="Principal">
@@ -63,22 +57,17 @@
   <p id="anuncios" class="sr-only" role="status" aria-live="polite"></p>
 
   <main id="conteudo" tabindex="-1">
-<section class="hero" aria-labelledby="titulo-pagina">
-      <div class="container hero-grade">
-        <div>
-          <nav class="trilha" aria-label="Você está em">
-            <ol>
-              <li><a href="index.html">Início</a></li>
-              <li><span aria-current="page">Mundo digital</span></li>
-            </ol>
-          </nav>
-          <p class="sobretitulo">Artigo · Mundo digital</p>
-          <h1 id="titulo-pagina">Sites e aplicativos que funcionam para todas as pessoas</h1>
-          <p class="lead">Pagar contas, marcar consultas, estudar e conversar acontecem cada vez mais pela tela. Quando um site não é acessível, ele bloqueia o acesso a serviços essenciais. A boa notícia: boa parte das soluções está em decisões simples de quem cria o conteúdo e o código.</p>
-        </div>
-        <figure class="ilustracao">
-          <img src="assets/digital.svg" alt="Ilustração de uma janela de navegador com título, texto e um botão destacado por um contorno de foco, e um teclado abaixo com a tecla Tab em evidência." width="400" height="300">
-        </figure>
+    <section class="hero" aria-labelledby="titulo-pagina">
+      <div class="container">
+        <nav class="trilha" aria-label="Você está em">
+          <ol>
+            <li><a href="index.html">Início</a></li>
+            <li><span aria-current="page">Mundo digital</span></li>
+          </ol>
+        </nav>
+        <p class="sobretitulo">Artigo · Mundo digital</p>
+        <h1 id="titulo-pagina">Sites e aplicativos que funcionam para todas as pessoas</h1>
+        <p class="lead">Pagar contas, marcar consultas, estudar e conversar acontecem cada vez mais pela tela. Quando um site não é acessível, ele bloqueia o acesso a serviços essenciais. A boa notícia: boa parte das soluções está em decisões simples de quem cria o conteúdo e o código.</p>
       </div>
     </section>
 
@@ -121,10 +110,10 @@
           <h3>Texto alternativo em imagens</h3>
           <p>Imagens que transmitem informação precisam de uma descrição no atributo <code>alt</code>. Imagens decorativas devem ter <code>alt</code> vazio, para que o leitor de tela as ignore.</p>
           <pre><code>&lt;!-- Imagem informativa --&gt;
-    &lt;img src="grafico.png" alt="Gráfico de barras: as vendas subiram de 20 para 35 mil entre janeiro e março."&gt;
+&lt;img src="grafico.png" alt="Gráfico de barras: as vendas subiram de 20 para 35 mil entre janeiro e março."&gt;
 
-    &lt;!-- Imagem decorativa --&gt;
-    &lt;img src="enfeite.svg" alt=""&gt;</code></pre>
+&lt;!-- Imagem decorativa --&gt;
+&lt;img src="enfeite.svg" alt=""&gt;</code></pre>
           <h3>Contraste</h3>
           <p>No nível AA, texto em tamanho normal precisa de contraste mínimo de <strong>4,5:1</strong> com o fundo; texto grande (a partir de cerca de 24 pixels, ou 18,5 pixels em negrito) precisa de <strong>3:1</strong>. Ícones e bordas de campos também precisam se destacar do fundo. Cinza-claro sobre branco é um dos problemas mais comuns da web.</p>
           <h3>Não depender só da cor</h3>
@@ -139,16 +128,16 @@
           <h3>Use elementos nativos</h3>
           <p>O elemento <code>&lt;button&gt;</code> já recebe foco, responde a <kbd>Enter</kbd> e <kbd>Espaço</kbd> e é anunciado como botão. Uma <code>&lt;div&gt;</code> com clique não faz nada disso sozinha.</p>
           <pre><code>&lt;!-- Evite --&gt;
-    &lt;div class="botao" onclick="enviar()"&gt;Enviar&lt;/div&gt;
+&lt;div class="botao" onclick="enviar()"&gt;Enviar&lt;/div&gt;
 
-    &lt;!-- Prefira --&gt;
-    &lt;button type="button" onclick="enviar()"&gt;Enviar&lt;/button&gt;</code></pre>
+&lt;!-- Prefira --&gt;
+&lt;button type="button" onclick="enviar()"&gt;Enviar&lt;/button&gt;</code></pre>
           <h3>Foco visível</h3>
           <p>Quem usa teclado precisa saber onde está. Nunca remova o contorno de foco sem colocar outro indicador no lugar. Este portal usa um contorno grosso e colorido em todos os elementos interativos:</p>
           <pre><code>:focus-visible {
-      outline: 3px solid var(--cor-foco);
-      outline-offset: 3px;
-    }</code></pre>
+  outline: 3px solid var(--foco);
+  outline-offset: 3px;
+}</code></pre>
           <h3>Ordem lógica e atalhos</h3>
           <p>A ordem do <kbd>Tab</kbd> deve seguir a ordem visual de leitura. Um link “Pular para o conteúdo” no início da página evita que a pessoa passe por todo o menu a cada página. Na WCAG 2.2, também é importante que o elemento em foco não fique escondido atrás de barras fixas e que alvos de toque tenham tamanho suficiente.</p>
           <h3>Tempo e movimento</h3>
@@ -163,9 +152,9 @@
           <h3>Rótulos em formulários</h3>
           <p>Todo campo precisa de um rótulo visível e associado ao controle. Um texto de exemplo dentro do campo (placeholder) não substitui o rótulo, porque desaparece ao digitar.</p>
           <pre><code>&lt;label for="email"&gt;E-mail&lt;/label&gt;
-    &lt;input id="email" type="email" autocomplete="email"
-           aria-describedby="email-dica"&gt;
-    &lt;p id="email-dica"&gt;Usaremos apenas para enviar a confirmação.&lt;/p&gt;</code></pre>
+&lt;input id="email" type="email" autocomplete="email"
+       aria-describedby="email-dica"&gt;
+&lt;p id="email-dica"&gt;Usaremos apenas para enviar a confirmação.&lt;/p&gt;</code></pre>
           <h3>Feedback de interface</h3>
           <p>Mensagens de erro devem dizer o que aconteceu e como resolver, perto do campo e também em um resumo. Resultados que aparecem sem recarregar a página precisam ser anunciados — por exemplo, com uma região <code>aria-live</code> ou movendo o foco para a mensagem. O <a href="guia.html#quiz">quiz do Guia prático</a> usa essas técnicas.</p>
           <h3>Comportamento previsível</h3>
@@ -180,7 +169,7 @@
           <h3>ARIA com moderação</h3>
           <p>ARIA é um conjunto de atributos que complementa o HTML quando ele não basta. A regra é: se existe um elemento nativo, use-o. Quando necessário, mantenha o estado sincronizado com o que está na tela:</p>
           <pre><code>&lt;button type="button" aria-pressed="false"&gt;Modo escuro&lt;/button&gt;
-    &lt;button type="button" aria-expanded="false" aria-controls="menu"&gt;Menu&lt;/button&gt;</code></pre>
+&lt;button type="button" aria-expanded="false" aria-controls="menu"&gt;Menu&lt;/button&gt;</code></pre>
           <p>Neste portal, o JavaScript atualiza <code>aria-pressed</code> sempre que o modo escuro ou o alto contraste mudam, e <code>aria-expanded</code> quando o menu móvel abre ou fecha.</p>
           <div class="nota">
             <span class="nota-titulo">Ferramentas ajudam, mas não bastam</span>
