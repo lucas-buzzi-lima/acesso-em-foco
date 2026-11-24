@@ -2,6 +2,8 @@
 
 **Inclusão em cada detalhe.** Portal educativo com artigos sobre acessibilidade no cotidiano, feito somente com HTML5, CSS3 e JavaScript. Trabalho individual (TDE) da disciplina de Programação Web.
 
+**Site publicado:** <https://lucas-buzzi-lima.github.io/acesso-em-foco/>
+
 O site funciona sem login, sem banco de dados, sem build e sem dependências externas.
 
 ## Estrutura
@@ -21,8 +23,7 @@ acesso-em-foco/
 ├── docs/
 │   ├── ROTEIRO_VIDEO.md     Roteiro do vídeo de 3 a 5 minutos
 │   └── CHECKLIST_TESTES.md  Testes executados, resultados e limitações
-├── README.md
-└── LINK_PUBLICACAO.txt  URL pública (preencher depois de publicar)
+└── README.md
 ```
 
 ## Como abrir localmente
@@ -50,8 +51,7 @@ python -m http.server 8000
 3. No GitHub, abra **Settings → Pages**.
 4. Em **Build and deployment**, escolha **Source: Deploy from a branch**, **Branch: main** e pasta **/(root)**. Clique em **Save**.
 5. Aguarde alguns minutos. A URL aparece no topo da mesma tela, no formato `https://SEU-USUARIO.github.io/acesso-em-foco/`.
-6. Abra a URL no computador e no celular e confira as sete páginas, os links do menu e do rodapé, as ilustrações e os botões de preferência.
-7. Copie a URL real para o arquivo `LINK_PUBLICACAO.txt` e faça um novo commit.
+6. Abra a URL no computador e no celular e confira as sete páginas, os links do menu e do rodapé e os botões de preferência.
 
 Todos os caminhos internos são relativos (`casa.html`, `assets/styles.css`), por isso o site funciona dentro do subdiretório do GitHub Pages.
 
@@ -87,8 +87,7 @@ O roteiro completo e os resultados estão em [`docs/CHECKLIST_TESTES.md`](docs/C
 
 ## O que ainda falta fazer (pelo estudante)
 
-- [ ] Publicar no GitHub Pages e conferir o site publicado no computador e no celular.
-- [ ] Registrar a URL real em `LINK_PUBLICACAO.txt`.
+- [x] Publicar no GitHub Pages e conferir o site publicado no computador e no celular.
 - [ ] Gravar o vídeo de 3 a 5 minutos seguindo `docs/ROTEIRO_VIDEO.md`.
 - [ ] Montar o ZIP final com os arquivos do site e o vídeo, e enviar ao AVA com o link público.
 
