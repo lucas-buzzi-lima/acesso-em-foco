@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Educação: aprendizagem inclusiva na prática — Acesso em Foco</title>
+  <meta name="description" content="Formatos alternativos de material, plataformas acessíveis, adaptações razoáveis, participação e boas práticas para professores e estudantes.">
+  <meta name="theme-color" content="#0a3c58">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="assets/app.js" defer></script>
+</head>
+<body id="topo">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="container header-topo">
+      <a class="marca" href="index.html">
+        <img src="assets/logo.svg" alt="" width="44" height="44">
+        <span>
+          <span class="marca-nome">Acesso em Foco</span>
+          <span class="marca-slogan">Inclusão em cada detalhe</span>
+        </span>
+      </a>
+      <button type="button" class="menu-botao" aria-expanded="false" aria-controls="menu-principal" hidden>
+        <span class="menu-botao-icone" aria-hidden="true"></span>
+        Menu
+      </button>
+    </div>
+
+    <nav class="menu-principal" id="menu-principal" aria-label="Principal">
+      <div class="container">
+        <ul class="menu">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="casa.html">Em casa</a></li>
+          <li><a href="cidade.html">Na cidade</a></li>
+          <li><a href="comunicacao.html">Comunicação</a></li>
+          <li><a href="educacao.html" aria-current="page">Educação</a></li>
+          <li><a href="digital.html">Mundo digital</a></li>
+          <li><a href="guia.html">Guia prático</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="preferencias" id="preferencias" hidden>
+      <div class="container preferencias-conteudo" role="group" aria-labelledby="preferencias-titulo">
+        <span class="preferencias-titulo" id="preferencias-titulo">Preferências de leitura</span>
+        <div class="grupo-controles" role="group" aria-label="Tamanho do texto">
+          <button type="button" class="controle" data-fonte="diminuir">A−<span class="sr-only"> (diminuir texto)</span></button>
+          <button type="button" class="controle" data-fonte="aumentar">A+<span class="sr-only"> (aumentar texto)</span></button>
+          <button type="button" class="controle" data-fonte="padrao">Padrão<span class="sr-only"> (tamanho original do texto)</span></button>
+          <span class="valor-fonte"><span class="sr-only">Tamanho atual: </span><span id="valor-fonte">100%</span></span>
+        </div>
+        <div class="grupo-controles" role="group" aria-label="Cores">
+          <button type="button" class="controle" id="botao-escuro" aria-pressed="false">Modo escuro</button>
+          <button type="button" class="controle" id="botao-contraste" aria-pressed="false">Alto contraste</button>
+        </div>
+        <a class="preferencias-ajuda" href="index.html#recursos">Como usar estes recursos</a>
+      </div>
+    </div>
+  </header>
+
+  <p id="anuncios" class="sr-only" role="status" aria-live="polite"></p>
+
+  <main id="conteudo" tabindex="-1">
+<section class="hero" aria-labelledby="titulo-pagina">
+      <div class="container hero-grade">
+        <div>
+          <nav class="trilha" aria-label="Você está em">
+            <ol>
+              <li><a href="index.html">Início</a></li>
+              <li><span aria-current="page">Educação</span></li>
+            </ol>
+          </nav>
+          <p class="sobretitulo">Artigo · Educação</p>
+          <h1 id="titulo-pagina">Aprender juntos, cada um do seu jeito</h1>
+          <p class="lead">Em uma turma, cada estudante chega com uma forma diferente de ler, ouvir, se concentrar e mostrar o que aprendeu. A educação inclusiva planeja aulas e materiais que funcionem para essa diversidade desde o início.</p>
+        </div>
+        <figure class="ilustracao">
+          <img src="assets/educacao.svg" alt="Ilustração de um livro aberto com texto ampliado na página da esquerda e pontos em braile na página da direita, com um fone de ouvido acima, representando a versão em áudio." width="400" height="300">
+        </figure>
+      </div>
+    </section>
+
+    <div class="container artigo-layout">
+      <nav class="sumario" aria-labelledby="sumario-titulo">
+        <h2 id="sumario-titulo">Nesta página</h2>
+        <ol>
+          <li><a href="#introducao">O que é aprendizagem inclusiva</a></li>
+          <li><a href="#materiais">Materiais em formatos alternativos</a></li>
+          <li><a href="#plataformas">Plataformas acessíveis</a></li>
+          <li><a href="#adaptacoes">Adaptações razoáveis</a></li>
+          <li><a href="#participacao">Formas de participação</a></li>
+          <li><a href="#boas-praticas">Boas práticas</a></li>
+          <li><a href="#acoes">Ações práticas</a></li>
+        </ol>
+      </nav>
+
+      <article class="artigo" aria-labelledby="titulo-pagina">
+        <section id="introducao">
+          <h2>O que é aprendizagem inclusiva</h2>
+          <p>Aprendizagem inclusiva não significa criar uma aula “especial” para alguns estudantes enquanto os outros seguem a aula “normal”. Significa planejar a aula para que todos possam acessar o conteúdo, participar das atividades e demonstrar o que aprenderam, com os apoios que cada um precisa.</p>
+          <p>Uma referência bastante usada é o <strong>Desenho Universal para a Aprendizagem (DUA)</strong>, que propõe oferecer múltiplas formas de:</p>
+          <ul>
+            <li><strong>apresentar</strong> o conteúdo (texto, imagem, áudio, objeto concreto);</li>
+            <li><strong>engajar</strong> os estudantes (temas próximos da realidade, escolhas, desafios em níveis diferentes);</li>
+            <li><strong>expressar</strong> o que foi aprendido (prova escrita, apresentação oral, vídeo, maquete, mapa mental).</li>
+          </ul>
+          <p>Assim como uma rampa serve para muito mais gente do que quem usa cadeira de rodas, um material com áudio e texto ajuda estudantes com deficiência visual, com dislexia, com déficit de atenção e quem simplesmente aprende melhor ouvindo.</p>
+        </section>
+
+        <section id="materiais">
+          <h2>Materiais em formatos alternativos</h2>
+          <p>O mesmo conteúdo pode ser oferecido em diferentes formatos, de acordo com a necessidade de cada estudante:</p>
+          <ul>
+            <li><strong>Texto digital acessível:</strong> arquivos com títulos estruturados e texto selecionável (e não uma foto da página), que podem ser lidos por leitores de tela, ampliados e convertidos em áudio.</li>
+            <li><strong>Fonte ampliada:</strong> versões impressas com letra maior, espaçamento confortável e bom contraste para estudantes com baixa visão.</li>
+            <li><strong>Braile:</strong> textos impressos em braile para estudantes cegos alfabetizados nesse sistema.</li>
+            <li><strong>Áudio e audiolivro:</strong> úteis para estudantes cegos, com dislexia ou com dificuldade de leitura.</li>
+            <li><strong>Vídeo com Libras e legenda:</strong> para estudantes surdos, garantindo acesso na língua de preferência de cada um.</li>
+            <li><strong>Material concreto e tátil:</strong> mapas em relevo, modelos 3D e objetos manipuláveis ajudam a compreender conceitos abstratos.</li>
+          </ul>
+          <div class="exemplo">
+            <span class="exemplo-titulo">Exemplo do dia a dia</span>
+            <p>Em uma aula de geografia, a professora disponibilizou o mapa do Brasil em três versões: digital com descrição, impresso ampliado e em relevo feito com cola e barbante. O estudante cego explorou o mapa tátil, mas os colegas também quiseram tocar — e a turma toda lembrou melhor das regiões.</p>
+          </div>
+        </section>
+
+        <section id="plataformas">
+          <h2>Plataformas acessíveis</h2>
+          <p>Ambientes virtuais de aprendizagem, sistemas de prova e aplicativos educacionais fazem parte da rotina de escolas e universidades. Quando não são acessíveis, impedem o estudante de entregar tarefas ou fazer avaliações.</p>
+          <ul>
+            <li>Toda a plataforma deve funcionar pelo teclado e com leitores de tela.</li>
+            <li>Vídeos precisam ter legendas; imagens, texto alternativo; documentos, texto selecionável.</li>
+            <li>Provas com tempo limitado devem permitir ampliar o prazo para quem precisa.</li>
+            <li>Mensagens de erro e confirmações de envio precisam ser claras e percebidas por todos.</li>
+          </ul>
+          <p>Os critérios técnicos para verificar isso estão no artigo <a href="digital.html">Mundo digital</a>.</p>
+        </section>
+
+        <section id="adaptacoes">
+          <h2>Adaptações razoáveis</h2>
+          <p>Adaptações razoáveis são ajustes feitos para atender à necessidade específica de um estudante, sem descaracterizar o objetivo da atividade. O foco é remover a barreira, não reduzir a expectativa de aprendizagem.</p>
+          <ul>
+            <li>Tempo adicional em provas e trabalhos.</li>
+            <li>Prova em formato digital, ampliado, em braile ou com ledor.</li>
+            <li>Possibilidade de responder oralmente ou por escrito.</li>
+            <li>Lugar na sala com menos distrações ou mais perto do quadro.</li>
+            <li>Pausas programadas para estudantes que se cansam com facilidade.</li>
+            <li>Instruções divididas em etapas curtas e também por escrito.</li>
+          </ul>
+          <p>A decisão sobre quais adaptações usar deve envolver o próprio estudante, a família (no caso de crianças e adolescentes) e a equipe pedagógica, incluindo o atendimento educacional especializado quando existir.</p>
+        </section>
+
+        <section id="participacao">
+          <h2>Formas de participação</h2>
+          <p>Participar é mais do que estar presente. Em muitas salas, a participação depende de falar em voz alta rapidamente, o que pode excluir estudantes surdos, tímidos, com gagueira ou que precisam de mais tempo para elaborar a resposta.</p>
+          <ul>
+            <li>Ofereça várias formas de contribuir: falar, escrever no quadro, enviar mensagem, desenhar ou apontar em cartões.</li>
+            <li>Dê tempo de pensar antes de pedir respostas.</li>
+            <li>Organize grupos com papéis definidos, para que cada pessoa contribua de acordo com seus pontos fortes.</li>
+            <li>Garanta que trabalhos em grupo sejam acessíveis a todos os integrantes, por exemplo usando documentos digitais compatíveis com leitores de tela.</li>
+          </ul>
+          <div class="exemplo">
+            <span class="exemplo-titulo">Exemplo do dia a dia</span>
+            <p>Em um debate, a turma combinou que as perguntas também poderiam ser enviadas por escrito em um mural digital. Um estudante surdo, que antes ficava de fora porque a conversa era muito rápida, passou a fazer algumas das perguntas mais discutidas da aula.</p>
+          </div>
+        </section>
+
+        <section id="boas-praticas">
+          <h2>Boas práticas de professores e estudantes</h2>
+          <h3>Para professores</h3>
+          <ul>
+            <li>Disponibilize os materiais antes da aula, em formato digital acessível.</li>
+            <li>Fale de frente para a turma e descreva o que escreve ou mostra no quadro.</li>
+            <li>Use o microfone quando houver, mesmo que sua voz “seja alta”: ele pode estar ligado a aparelhos auditivos ou à transmissão.</li>
+            <li>Pergunte reservadamente aos estudantes se precisam de algum ajuste.</li>
+          </ul>
+          <h3>Para estudantes</h3>
+          <ul>
+            <li>Ao compartilhar arquivos com colegas, prefira documentos com texto selecionável em vez de fotos de páginas.</li>
+            <li>Em apresentações, use letras grandes e descreva imagens e gráficos em voz alta.</li>
+            <li>Inclua os colegas com deficiência nas decisões do grupo, e não apenas nas tarefas.</li>
+            <li>Se você precisa de um ajuste, converse com a coordenação: pedir apoio é um direito.</li>
+          </ul>
+        </section>
+
+        <section class="acoes-praticas" id="acoes" aria-labelledby="titulo-acoes">
+          <h2 id="titulo-acoes">Ações práticas</h2>
+          <ol>
+            <li>Para cada aula, ofereça o conteúdo principal em pelo menos dois formatos.</li>
+            <li>Revise seus arquivos: títulos estruturados, texto selecionável e imagens descritas.</li>
+            <li>Permita mais de uma forma de entrega das atividades.</li>
+            <li>Ative legendas nos vídeos usados em sala e revise as automáticas.</li>
+            <li>Combine com a turma regras de participação que incluam quem precisa de mais tempo.</li>
+            <li>Pergunte, no início do semestre, quais apoios cada estudante usa.</li>
+          </ol>
+        </section>
+
+        <nav class="continue" aria-labelledby="titulo-continue">
+          <h2 id="titulo-continue">Continue lendo</h2>
+          <ul>
+            <li><a href="digital.html">Mundo digital <span>Plataformas e conteúdos acessíveis</span></a></li>
+            <li><a href="comunicacao.html">Comunicação <span>Legendas, Libras e linguagem simples</span></a></li>
+            <li><a href="guia.html">Guia prático <span>Teste seus conhecimentos no quiz</span></a></li>
+          </ul>
+        </nav>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container rodape-grade">
+      <div>
+        <p class="rodape-marca">Acesso em Foco</p>
+        <p>Inclusão em cada detalhe. Portal educativo com artigos sobre acessibilidade no cotidiano, produzido como trabalho individual da disciplina de Programação Web.</p>
+      </div>
+      <nav aria-label="Rodapé">
+        <h2 class="rodape-titulo">Páginas</h2>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="casa.html">Em casa</a></li>
+          <li><a href="cidade.html">Na cidade</a></li>
+          <li><a href="comunicacao.html">Comunicação</a></li>
+          <li><a href="educacao.html" aria-current="page">Educação</a></li>
+          <li><a href="digital.html">Mundo digital</a></li>
+          <li><a href="guia.html">Guia prático</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2 class="rodape-titulo">Referências</h2>
+        <ul>
+          <li><a href="https://emag.governoeletronico.gov.br/">eMAG 3.1 — Governo Federal (site externo)</a></li>
+          <li><a href="https://www.w3.org/TR/WCAG22/">WCAG 2.2 — W3C (site externo, em inglês)</a></li>
+          <li><a href="guia.html#referencias">Todas as referências do portal</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container rodape-base">
+      <p>Este portal foi construído com base no eMAG 3.1 e na WCAG 2.2 (nível AA como meta). Ele passou por testes automáticos e manuais, mas não por uma auditoria formal de conformidade.</p>
+      <a href="#topo">Voltar ao topo</a>
+    </div>
+  </footer>
+</body>
+</html>

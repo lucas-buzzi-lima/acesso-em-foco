@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guia prático: checklist, quiz e referências — Acesso em Foco</title>
+  <meta name="description" content="Checklist para avaliar a acessibilidade do portal, quiz com correção, recursos adotados, mapa do site e referências confiáveis.">
+  <meta name="theme-color" content="#0a3c58">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="assets/app.js" defer></script>
+</head>
+<body id="topo">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="container header-topo">
+      <a class="marca" href="index.html">
+        <img src="assets/logo.svg" alt="" width="44" height="44">
+        <span>
+          <span class="marca-nome">Acesso em Foco</span>
+          <span class="marca-slogan">Inclusão em cada detalhe</span>
+        </span>
+      </a>
+      <button type="button" class="menu-botao" aria-expanded="false" aria-controls="menu-principal" hidden>
+        <span class="menu-botao-icone" aria-hidden="true"></span>
+        Menu
+      </button>
+    </div>
+
+    <nav class="menu-principal" id="menu-principal" aria-label="Principal">
+      <div class="container">
+        <ul class="menu">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="casa.html">Em casa</a></li>
+          <li><a href="cidade.html">Na cidade</a></li>
+          <li><a href="comunicacao.html">Comunicação</a></li>
+          <li><a href="educacao.html">Educação</a></li>
+          <li><a href="digital.html">Mundo digital</a></li>
+          <li><a href="guia.html" aria-current="page">Guia prático</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="preferencias" id="preferencias" hidden>
+      <div class="container preferencias-conteudo" role="group" aria-labelledby="preferencias-titulo">
+        <span class="preferencias-titulo" id="preferencias-titulo">Preferências de leitura</span>
+        <div class="grupo-controles" role="group" aria-label="Tamanho do texto">
+          <button type="button" class="controle" data-fonte="diminuir">A−<span class="sr-only"> (diminuir texto)</span></button>
+          <button type="button" class="controle" data-fonte="aumentar">A+<span class="sr-only"> (aumentar texto)</span></button>
+          <button type="button" class="controle" data-fonte="padrao">Padrão<span class="sr-only"> (tamanho original do texto)</span></button>
+          <span class="valor-fonte"><span class="sr-only">Tamanho atual: </span><span id="valor-fonte">100%</span></span>
+        </div>
+        <div class="grupo-controles" role="group" aria-label="Cores">
+          <button type="button" class="controle" id="botao-escuro" aria-pressed="false">Modo escuro</button>
+          <button type="button" class="controle" id="botao-contraste" aria-pressed="false">Alto contraste</button>
+        </div>
+        <a class="preferencias-ajuda" href="index.html#recursos">Como usar estes recursos</a>
+      </div>
+    </div>
+  </header>
+
+  <p id="anuncios" class="sr-only" role="status" aria-live="polite"></p>
+
+  <main id="conteudo" tabindex="-1">
+<section class="hero" aria-labelledby="titulo-pagina">
+      <div class="container hero-grade">
+        <div>
+          <nav class="trilha" aria-label="Você está em">
+            <ol>
+              <li><a href="index.html">Início</a></li>
+              <li><span aria-current="page">Guia prático</span></li>
+            </ol>
+          </nav>
+          <p class="sobretitulo">Guia prático</p>
+          <h1 id="titulo-pagina">Teste, pratique e aprofunde</h1>
+          <p class="lead">Use o checklist para avaliar este próprio portal com o teclado, o zoom e os ajustes de leitura. Depois, revise os conceitos no quiz e consulte as referências para continuar estudando.</p>
+        </div>
+        <figure class="ilustracao">
+          <img src="assets/guia.svg" alt="" width="400" height="300">
+        </figure>
+      </div>
+    </section>
+
+    <div class="container artigo-layout">
+      <nav class="sumario" aria-labelledby="sumario-titulo">
+        <h2 id="sumario-titulo">Nesta página</h2>
+        <ol>
+          <li><a href="#checklist-secao">Checklist de avaliação</a></li>
+          <li><a href="#quiz-secao">Quiz</a></li>
+          <li><a href="#recursos-adotados">Recursos adotados</a></li>
+          <li><a href="#mapa">Mapa do site</a></li>
+          <li><a href="#referencias">Referências</a></li>
+        </ol>
+      </nav>
+
+      <div class="artigo">
+        <section id="checklist-secao" aria-labelledby="titulo-checklist">
+          <h2 id="titulo-checklist">Checklist de avaliação do site</h2>
+          <p>Faça cada teste e marque o item quando ele funcionar como descrito. O progresso aparece abaixo da lista e é anunciado para leitores de tela. As marcações ficam salvas neste navegador, então você pode continuar depois.</p>
+
+          <form class="painel" id="checklist" aria-labelledby="titulo-checklist">
+            <fieldset>
+              <legend>Itens verificados</legend>
+              <div class="opcao">
+                <input type="checkbox" id="c1" name="checklist" value="c1">
+                <label for="c1">Navegação só pelo teclado
+                  <span class="opcao-dica">Consegui chegar a todos os links e botões com Tab e Shift + Tab, sem ficar preso em nenhum lugar.</span></label>
+              </div>
+              <div class="opcao">
+                <input type="checkbox" id="c2" name="checklist" value="c2">
+                <label for="c2">Foco sempre visível
+                  <span class="opcao-dica">Em todos os elementos, um contorno mostrou claramente onde eu estava.</span></label>
+              </div>
+              <div class="opcao">
+                <input type="checkbox" id="c3" name="checklist" value="c3">
+                <label for="c3">Pular para o conteúdo
+                  <span class="opcao-dica">Ao recarregar a página e pressionar Tab, o link apareceu e me levou direto ao texto principal.</span></label>
+              </div>
+              <div class="opcao">
+                <input type="checkbox" id="c4" name="checklist" value="c4">
+                <label for="c4">Ajuste do tamanho do texto
+                  <span class="opcao-dica">Com A+ no máximo (150%), todo o conteúdo continuou legível e sem sobreposição.</span></label>
+              </div>
+              <div class="opcao">
+                <input type="checkbox" id="c5" name="checklist" value="c5">
+                <label for="c5">Zoom e tela estreita
+                  <span class="opcao-dica">Com zoom de 200% no navegador ou no celular, não precisei rolar a página para os lados.</span></label>
+              </div>
+              <div class="opcao">
+                <input type="checkbox" id="c6" name="checklist" value="c6">
+                <label for="c6">Modo escuro e alto contraste
+                  <span class="opcao-dica">Nos dois modos, textos, links e botões continuaram fáceis de ler, e a escolha se manteve ao trocar de página.</span></label>
+              </div>
+              <div class="opcao">
+                <input type="checkbox" id="c7" name="checklist" value="c7">
+                <label for="c7">Imagens descritas
+                  <span class="opcao-dica">As ilustrações dos artigos têm descrição em texto alternativo; as decorativas são ignoradas pelo leitor de tela.</span></label>
+              </div>
+              <div class="opcao">
+                <input type="checkbox" id="c8" name="checklist" value="c8">
+                <label for="c8">Títulos em ordem
+                  <span class="opcao-dica">Cada página tem um título principal e subtítulos que permitem entender a estrutura do texto.</span></label>
+              </div>
+            </fieldset>
+
+            <div class="progresso">
+              <p class="progresso-texto" id="checklist-status" role="status">0 de 8 itens verificados (0%).</p>
+              <progress id="checklist-barra" max="8" value="0" aria-label="Progresso do checklist">0 de 8</progress>
+            </div>
+
+            <div class="botoes-linha">
+              <button type="reset" class="botao botao--secundario">Desmarcar todos os itens</button>
+            </div>
+          </form>
+        </section>
+
+        <section id="quiz-secao" aria-labelledby="titulo-quiz">
+          <h2 id="titulo-quiz">Quiz: revise os conceitos</h2>
+          <p>São cinco perguntas de múltipla escolha. Responda todas e escolha “Corrigir respostas”. Você verá a correção e uma explicação para cada pergunta. Se faltar alguma resposta, uma mensagem indicará quais perguntas precisam ser respondidas.</p>
+
+          <form class="painel" id="quiz" aria-labelledby="titulo-quiz" novalidate>
+            <div id="quiz-resultado" class="mensagem" tabindex="-1"></div>
+
+            <fieldset id="q1-grupo">
+              <legend>Pergunta 1: Qual elemento HTML é o mais adequado para uma ação como “Enviar”?</legend>
+              <p class="erro-campo" id="q1-erro" hidden>Escolha uma alternativa para a pergunta 1.</p>
+              <div class="opcao"><input type="radio" id="q1-a" name="q1" value="a"><label for="q1-a">Uma <code>&lt;div&gt;</code> com evento de clique</label></div>
+              <div class="opcao"><input type="radio" id="q1-b" name="q1" value="b"><label for="q1-b">Um <code>&lt;button&gt;</code></label></div>
+              <div class="opcao"><input type="radio" id="q1-c" name="q1" value="c"><label for="q1-c">Um <code>&lt;span&gt;</code> estilizado para parecer botão</label></div>
+              <div class="feedback" id="q1-retorno" hidden></div>
+            </fieldset>
+
+            <fieldset id="q2-grupo">
+              <legend>Pergunta 2: Como marcar uma imagem que é apenas decorativa?</legend>
+              <p class="erro-campo" id="q2-erro" hidden>Escolha uma alternativa para a pergunta 2.</p>
+              <div class="opcao"><input type="radio" id="q2-a" name="q2" value="a"><label for="q2-a"><code>alt=""</code> (atributo vazio)</label></div>
+              <div class="opcao"><input type="radio" id="q2-b" name="q2" value="b"><label for="q2-b"><code>alt="imagem"</code></label></div>
+              <div class="opcao"><input type="radio" id="q2-c" name="q2" value="c"><label for="q2-c">Sem o atributo <code>alt</code></label></div>
+              <div class="feedback" id="q2-retorno" hidden></div>
+            </fieldset>
+
+            <fieldset id="q3-grupo">
+              <legend>Pergunta 3: No nível AA da WCAG, qual é o contraste mínimo para texto em tamanho normal?</legend>
+              <p class="erro-campo" id="q3-erro" hidden>Escolha uma alternativa para a pergunta 3.</p>
+              <div class="opcao"><input type="radio" id="q3-a" name="q3" value="a"><label for="q3-a">3:1</label></div>
+              <div class="opcao"><input type="radio" id="q3-b" name="q3" value="b"><label for="q3-b">4,5:1</label></div>
+              <div class="opcao"><input type="radio" id="q3-c" name="q3" value="c"><label for="q3-c">7:1</label></div>
+              <div class="feedback" id="q3-retorno" hidden></div>
+            </fieldset>
+
+            <fieldset id="q4-grupo">
+              <legend>Pergunta 4: Qual é a função do piso tátil direcional nas calçadas?</legend>
+              <p class="erro-campo" id="q4-erro" hidden>Escolha uma alternativa para a pergunta 4.</p>
+              <div class="opcao"><input type="radio" id="q4-a" name="q4" value="a"><label for="q4-a">Decorar a calçada com uma cor diferente</label></div>
+              <div class="opcao"><input type="radio" id="q4-b" name="q4" value="b"><label for="q4-b">Marcar o lugar onde carros podem parar</label></div>
+              <div class="opcao"><input type="radio" id="q4-c" name="q4" value="c"><label for="q4-c">Orientar o deslocamento de quem usa bengala ou percebe o piso pelos pés</label></div>
+              <div class="feedback" id="q4-retorno" hidden></div>
+            </fieldset>
+
+            <fieldset id="q5-grupo">
+              <legend>Pergunta 5: O que uma legenda para surdos e ensurdecidos deve incluir?</legend>
+              <p class="erro-campo" id="q5-erro" hidden>Escolha uma alternativa para a pergunta 5.</p>
+              <div class="opcao"><input type="radio" id="q5-a" name="q5" value="a"><label for="q5-a">Apenas as falas dos personagens</label></div>
+              <div class="opcao"><input type="radio" id="q5-b" name="q5" value="b"><label for="q5-b">As falas e também os sons relevantes, como risadas, música e alarmes</label></div>
+              <div class="opcao"><input type="radio" id="q5-c" name="q5" value="c"><label for="q5-c">Apenas o nome das músicas da trilha sonora</label></div>
+              <div class="feedback" id="q5-retorno" hidden></div>
+            </fieldset>
+
+            <div class="botoes-linha">
+              <button type="submit" class="botao">Corrigir respostas</button>
+              <button type="reset" class="botao botao--secundario">Recomeçar o quiz</button>
+            </div>
+          </form>
+        </section>
+
+        <section id="recursos-adotados" aria-labelledby="titulo-recursos-adotados">
+          <h2 id="titulo-recursos-adotados">Recursos de acessibilidade adotados</h2>
+          <p>Estes são os recursos implementados no portal. As instruções de uso estão na seção <a href="index.html#recursos">Recursos de acessibilidade deste portal</a>, na página inicial.</p>
+          <ul class="lista-dupla">
+            <li>HTML semântico com regiões de cabeçalho, navegação, conteúdo e rodapé.</li>
+            <li>Um único título principal (<code>h1</code>) por página e subtítulos em ordem.</li>
+            <li>Idioma declarado como português do Brasil e títulos de página específicos.</li>
+            <li>Link “Pular para o conteúdo” no início de todas as páginas.</li>
+            <li>Navegação completa por teclado, com indicador de foco visível.</li>
+            <li>Página atual marcada no menu por estilo e por <code>aria-current</code>.</li>
+            <li>Botões A−, A+ e Padrão, com valor exibido e mudança anunciada.</li>
+            <li>Modo escuro e alto contraste com <code>aria-pressed</code> e preferência salva.</li>
+            <li>Menu móvel com botão nativo, <code>aria-expanded</code> e fechamento por Esc.</li>
+            <li>Cores escolhidas para contraste mínimo de 4,5:1 no texto.</li>
+            <li>Layout responsivo sem rolagem horizontal a partir de 320 pixels.</li>
+            <li>Ilustrações SVG locais com texto alternativo ou marcadas como decorativas.</li>
+            <li>Formulários com <code>fieldset</code>, <code>legend</code> e rótulos associados.</li>
+            <li>Resultados dinâmicos anunciados com <code>role="status"</code> ou movendo o foco.</li>
+            <li>Respeito à preferência do sistema por menos movimento.</li>
+            <li>Funciona sem login, sem banco de dados e sem dependências externas.</li>
+          </ul>
+          <div class="nota">
+            <span class="nota-titulo">Limitações conhecidas</span>
+            <p>O portal foi testado com ferramentas automáticas e manualmente, mas não passou por auditoria formal nem por testes com um grupo amplo de pessoas com deficiência. Por isso, não declaramos conformidade total com a WCAG 2.2 ou o eMAG.</p>
+          </div>
+        </section>
+
+        <section id="mapa" class="mapa-site" aria-labelledby="titulo-mapa">
+          <h2 id="titulo-mapa">Mapa do site</h2>
+          <ul>
+            <li><a href="index.html">Início</a>
+              <ul>
+                <li><a href="index.html#temas">Explore os temas</a></li>
+                <li><a href="index.html#recursos">Recursos de acessibilidade deste portal</a></li>
+              </ul>
+            </li>
+            <li><a href="casa.html">Em casa</a>
+              <ul>
+                <li><a href="casa.html#circulacao">Circulação entre móveis</a></li>
+                <li><a href="casa.html#iluminacao">Iluminação adequada</a></li>
+                <li><a href="casa.html#banheiro-cozinha">Banheiro e cozinha</a></li>
+              </ul>
+            </li>
+            <li><a href="cidade.html">Na cidade</a>
+              <ul>
+                <li><a href="cidade.html#calcadas">Calçadas contínuas</a></li>
+                <li><a href="cidade.html#travessias">Travessias</a></li>
+                <li><a href="cidade.html#transporte">Transporte</a></li>
+              </ul>
+            </li>
+            <li><a href="comunicacao.html">Comunicação</a>
+              <ul>
+                <li><a href="comunicacao.html#legendas">Legendas e transcrições</a></li>
+                <li><a href="comunicacao.html#libras">Libras</a></li>
+                <li><a href="comunicacao.html#linguagem">Linguagem simples</a></li>
+              </ul>
+            </li>
+            <li><a href="educacao.html">Educação</a>
+              <ul>
+                <li><a href="educacao.html#materiais">Materiais em formatos alternativos</a></li>
+                <li><a href="educacao.html#adaptacoes">Adaptações razoáveis</a></li>
+                <li><a href="educacao.html#participacao">Formas de participação</a></li>
+              </ul>
+            </li>
+            <li><a href="digital.html">Mundo digital</a>
+              <ul>
+                <li><a href="digital.html#perceptivel">Perceptível</a></li>
+                <li><a href="digital.html#operavel">Operável</a></li>
+                <li><a href="digital.html#compreensivel">Compreensível</a></li>
+                <li><a href="digital.html#robusto">Robusto</a></li>
+              </ul>
+            </li>
+            <li><a href="guia.html">Guia prático</a>
+              <ul>
+                <li><a href="#checklist-secao">Checklist de avaliação</a></li>
+                <li><a href="#quiz-secao">Quiz</a></li>
+                <li><a href="#referencias">Referências</a></li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+
+        <section id="referencias" class="referencias" aria-labelledby="titulo-referencias">
+          <h2 id="titulo-referencias">Referências e fontes confiáveis</h2>
+          <p>Os textos deste portal são originais e resumem conceitos apresentados nas fontes abaixo. Todos os links levam a sites externos; os marcados como “em inglês” não têm versão oficial em português.</p>
+          <ul>
+            <li><a href="https://emag.governoeletronico.gov.br/">eMAG 3.1 — Modelo de Acessibilidade em Governo Eletrônico</a> <span class="dominio">(Governo Federal, emag.governoeletronico.gov.br)</span></li>
+            <li><a href="https://www.w3.org/TR/WCAG22/">WCAG 2.2 — Diretrizes de Acessibilidade para Conteúdo Web, em inglês</a> <span class="dominio">(W3C, w3.org)</span></li>
+            <li><a href="https://www.w3.org/WAI/WCAG22/quickref/">Referência rápida da WCAG 2.2, em inglês</a> <span class="dominio">(W3C WAI, w3.org)</span></li>
+            <li><a href="https://www.w3.org/WAI/test-evaluate/">Como avaliar a acessibilidade de sites, em inglês</a> <span class="dominio">(W3C WAI, w3.org)</span></li>
+            <li><a href="https://www.w3.org/WAI/fundamentals/accessibility-intro/">Introdução à acessibilidade web, em inglês</a> <span class="dominio">(W3C WAI, w3.org)</span></li>
+            <li><a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13146.htm">Lei nº 13.146/2015 — Lei Brasileira de Inclusão da Pessoa com Deficiência</a> <span class="dominio">(Planalto, planalto.gov.br)</span></li>
+            <li><a href="https://www.planalto.gov.br/ccivil_03/leis/2002/l10436.htm">Lei nº 10.436/2002 — reconhecimento da Libras</a> <span class="dominio">(Planalto, planalto.gov.br)</span></li>
+            <li><a href="https://developer.mozilla.org/pt-BR/docs/Web/Accessibility">Acessibilidade na documentação da MDN</a> <span class="dominio">(Mozilla, developer.mozilla.org)</span></li>
+          </ul>
+          <p>A norma ABNT NBR 9050, citada nos artigos sobre casa e cidade, trata da acessibilidade em edificações, mobiliário e espaços urbanos e pode ser consultada junto à Associação Brasileira de Normas Técnicas.</p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container rodape-grade">
+      <div>
+        <p class="rodape-marca">Acesso em Foco</p>
+        <p>Inclusão em cada detalhe. Portal educativo com artigos sobre acessibilidade no cotidiano, produzido como trabalho individual da disciplina de Programação Web.</p>
+      </div>
+      <nav aria-label="Rodapé">
+        <h2 class="rodape-titulo">Páginas</h2>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="casa.html">Em casa</a></li>
+          <li><a href="cidade.html">Na cidade</a></li>
+          <li><a href="comunicacao.html">Comunicação</a></li>
+          <li><a href="educacao.html">Educação</a></li>
+          <li><a href="digital.html">Mundo digital</a></li>
+          <li><a href="guia.html" aria-current="page">Guia prático</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2 class="rodape-titulo">Referências</h2>
+        <ul>
+          <li><a href="https://emag.governoeletronico.gov.br/">eMAG 3.1 — Governo Federal (site externo)</a></li>
+          <li><a href="https://www.w3.org/TR/WCAG22/">WCAG 2.2 — W3C (site externo, em inglês)</a></li>
+          <li><a href="guia.html#referencias">Todas as referências do portal</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container rodape-base">
+      <p>Este portal foi construído com base no eMAG 3.1 e na WCAG 2.2 (nível AA como meta). Ele passou por testes automáticos e manuais, mas não por uma auditoria formal de conformidade.</p>
+      <a href="#topo">Voltar ao topo</a>
+    </div>
+  </footer>
+</body>
+</html>

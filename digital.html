@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mundo digital: teclado, leitores de tela e WCAG — Acesso em Foco</title>
+  <meta name="description" content="Os quatro princípios da WCAG explicados com exemplos de HTML semântico, foco, rótulos, texto alternativo, contraste e feedback de interface.">
+  <meta name="theme-color" content="#0a3c58">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="assets/app.js" defer></script>
+</head>
+<body id="topo">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="container header-topo">
+      <a class="marca" href="index.html">
+        <img src="assets/logo.svg" alt="" width="44" height="44">
+        <span>
+          <span class="marca-nome">Acesso em Foco</span>
+          <span class="marca-slogan">Inclusão em cada detalhe</span>
+        </span>
+      </a>
+      <button type="button" class="menu-botao" aria-expanded="false" aria-controls="menu-principal" hidden>
+        <span class="menu-botao-icone" aria-hidden="true"></span>
+        Menu
+      </button>
+    </div>
+
+    <nav class="menu-principal" id="menu-principal" aria-label="Principal">
+      <div class="container">
+        <ul class="menu">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="casa.html">Em casa</a></li>
+          <li><a href="cidade.html">Na cidade</a></li>
+          <li><a href="comunicacao.html">Comunicação</a></li>
+          <li><a href="educacao.html">Educação</a></li>
+          <li><a href="digital.html" aria-current="page">Mundo digital</a></li>
+          <li><a href="guia.html">Guia prático</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="preferencias" id="preferencias" hidden>
+      <div class="container preferencias-conteudo" role="group" aria-labelledby="preferencias-titulo">
+        <span class="preferencias-titulo" id="preferencias-titulo">Preferências de leitura</span>
+        <div class="grupo-controles" role="group" aria-label="Tamanho do texto">
+          <button type="button" class="controle" data-fonte="diminuir">A−<span class="sr-only"> (diminuir texto)</span></button>
+          <button type="button" class="controle" data-fonte="aumentar">A+<span class="sr-only"> (aumentar texto)</span></button>
+          <button type="button" class="controle" data-fonte="padrao">Padrão<span class="sr-only"> (tamanho original do texto)</span></button>
+          <span class="valor-fonte"><span class="sr-only">Tamanho atual: </span><span id="valor-fonte">100%</span></span>
+        </div>
+        <div class="grupo-controles" role="group" aria-label="Cores">
+          <button type="button" class="controle" id="botao-escuro" aria-pressed="false">Modo escuro</button>
+          <button type="button" class="controle" id="botao-contraste" aria-pressed="false">Alto contraste</button>
+        </div>
+        <a class="preferencias-ajuda" href="index.html#recursos">Como usar estes recursos</a>
+      </div>
+    </div>
+  </header>
+
+  <p id="anuncios" class="sr-only" role="status" aria-live="polite"></p>
+
+  <main id="conteudo" tabindex="-1">
+<section class="hero" aria-labelledby="titulo-pagina">
+      <div class="container hero-grade">
+        <div>
+          <nav class="trilha" aria-label="Você está em">
+            <ol>
+              <li><a href="index.html">Início</a></li>
+              <li><span aria-current="page">Mundo digital</span></li>
+            </ol>
+          </nav>
+          <p class="sobretitulo">Artigo · Mundo digital</p>
+          <h1 id="titulo-pagina">Sites e aplicativos que funcionam para todas as pessoas</h1>
+          <p class="lead">Pagar contas, marcar consultas, estudar e conversar acontecem cada vez mais pela tela. Quando um site não é acessível, ele bloqueia o acesso a serviços essenciais. A boa notícia: boa parte das soluções está em decisões simples de quem cria o conteúdo e o código.</p>
+        </div>
+        <figure class="ilustracao">
+          <img src="assets/digital.svg" alt="Ilustração de uma janela de navegador com título, texto e um botão destacado por um contorno de foco, e um teclado abaixo com a tecla Tab em evidência." width="400" height="300">
+        </figure>
+      </div>
+    </section>
+
+    <div class="container artigo-layout">
+      <nav class="sumario" aria-labelledby="sumario-titulo">
+        <h2 id="sumario-titulo">Nesta página</h2>
+        <ol>
+          <li><a href="#introducao">Como as pessoas usam a web</a></li>
+          <li><a href="#wcag">O que é a WCAG</a></li>
+          <li><a href="#perceptivel">Perceptível</a></li>
+          <li><a href="#operavel">Operável</a></li>
+          <li><a href="#compreensivel">Compreensível</a></li>
+          <li><a href="#robusto">Robusto</a></li>
+          <li><a href="#acoes">Ações práticas</a></li>
+        </ol>
+      </nav>
+
+      <article class="artigo" aria-labelledby="titulo-pagina">
+        <section id="introducao">
+          <h2>Como as pessoas usam a web</h2>
+          <p>Nem todo mundo navega com mouse e olhando para a tela. Algumas formas comuns de uso são:</p>
+          <ul>
+            <li><strong>Somente teclado:</strong> pessoas com deficiência motora, com tremores ou que preferem atalhos usam <kbd>Tab</kbd>, <kbd>Enter</kbd>, <kbd>Espaço</kbd> e as setas para navegar.</li>
+            <li><strong>Leitores de tela:</strong> programas como NVDA, JAWS, VoiceOver e TalkBack leem o conteúdo em voz alta ou em uma linha braile. Pessoas cegas os usam para navegar por títulos, links, regiões e campos de formulário.</li>
+            <li><strong>Ampliação:</strong> pessoas com baixa visão aumentam o zoom do navegador ou usam ampliadores de tela, vendo só uma parte da página de cada vez.</li>
+            <li><strong>Controle por voz e acionadores:</strong> pessoas com mobilidade muito reduzida podem falar o nome de um botão ou usar um único botão adaptado para navegar.</li>
+          </ul>
+          <p>Todas essas tecnologias dependem de que o site seja construído corretamente. Elas não “consertam” uma página mal estruturada.</p>
+        </section>
+
+        <section id="wcag">
+          <h2>O que é a WCAG</h2>
+          <p>As Diretrizes de Acessibilidade para Conteúdo Web (WCAG, na sigla em inglês) são publicadas pelo W3C, o consórcio que define padrões da web. A versão 2.2 organiza seus critérios em três níveis — A, AA e AAA — e em quatro princípios. No Brasil, o <strong>eMAG</strong> (Modelo de Acessibilidade em Governo Eletrônico) é a referência para sites do governo e foi elaborado com base na WCAG.</p>
+          <p>Os quatro princípios formam a sigla <strong>POUR</strong> em inglês: o conteúdo precisa ser <strong>perceptível</strong>, <strong>operável</strong>, <strong>compreensível</strong> e <strong>robusto</strong>.</p>
+        </section>
+
+        <section id="perceptivel">
+          <h2>1. Perceptível</h2>
+          <p>A informação precisa chegar à pessoa por pelo menos um sentido que ela consiga usar. Nada pode depender apenas da visão ou apenas da audição.</p>
+          <h3>Texto alternativo em imagens</h3>
+          <p>Imagens que transmitem informação precisam de uma descrição no atributo <code>alt</code>. Imagens decorativas devem ter <code>alt</code> vazio, para que o leitor de tela as ignore.</p>
+          <pre><code>&lt;!-- Imagem informativa --&gt;
+    &lt;img src="grafico.png" alt="Gráfico de barras: as vendas subiram de 20 para 35 mil entre janeiro e março."&gt;
+
+    &lt;!-- Imagem decorativa --&gt;
+    &lt;img src="enfeite.svg" alt=""&gt;</code></pre>
+          <h3>Contraste</h3>
+          <p>No nível AA, texto em tamanho normal precisa de contraste mínimo de <strong>4,5:1</strong> com o fundo; texto grande (a partir de cerca de 24 pixels, ou 18,5 pixels em negrito) precisa de <strong>3:1</strong>. Ícones e bordas de campos também precisam se destacar do fundo. Cinza-claro sobre branco é um dos problemas mais comuns da web.</p>
+          <h3>Não depender só da cor</h3>
+          <p>Se um campo com erro fica apenas vermelho, quem não distingue cores não percebe o problema. Acrescente um texto (“Campo obrigatório”) ou um ícone. Neste portal, o item atual do menu é indicado por cor, por sublinhado grosso e pelo atributo <code>aria-current="page"</code>.</p>
+          <h3>Legendas e transcrições</h3>
+          <p>Vídeos precisam de legenda e áudios precisam de transcrição, como explicado no artigo <a href="comunicacao.html#legendas">Comunicação</a>.</p>
+        </section>
+
+        <section id="operavel">
+          <h2>2. Operável</h2>
+          <p>Todas as funções precisam poder ser usadas de diferentes formas, especialmente pelo teclado, e sem armadilhas de tempo ou de foco.</p>
+          <h3>Use elementos nativos</h3>
+          <p>O elemento <code>&lt;button&gt;</code> já recebe foco, responde a <kbd>Enter</kbd> e <kbd>Espaço</kbd> e é anunciado como botão. Uma <code>&lt;div&gt;</code> com clique não faz nada disso sozinha.</p>
+          <pre><code>&lt;!-- Evite --&gt;
+    &lt;div class="botao" onclick="enviar()"&gt;Enviar&lt;/div&gt;
+
+    &lt;!-- Prefira --&gt;
+    &lt;button type="button" onclick="enviar()"&gt;Enviar&lt;/button&gt;</code></pre>
+          <h3>Foco visível</h3>
+          <p>Quem usa teclado precisa saber onde está. Nunca remova o contorno de foco sem colocar outro indicador no lugar. Este portal usa um contorno grosso e colorido em todos os elementos interativos:</p>
+          <pre><code>:focus-visible {
+      outline: 3px solid var(--cor-foco);
+      outline-offset: 3px;
+    }</code></pre>
+          <h3>Ordem lógica e atalhos</h3>
+          <p>A ordem do <kbd>Tab</kbd> deve seguir a ordem visual de leitura. Um link “Pular para o conteúdo” no início da página evita que a pessoa passe por todo o menu a cada página. Na WCAG 2.2, também é importante que o elemento em foco não fique escondido atrás de barras fixas e que alvos de toque tenham tamanho suficiente.</p>
+          <h3>Tempo e movimento</h3>
+          <p>Evite limites de tempo que não possam ser estendidos, conteúdo que pisca e carrosséis que se movem sozinhos. Respeite a configuração do sistema que pede para reduzir animações.</p>
+        </section>
+
+        <section id="compreensivel">
+          <h2>3. Compreensível</h2>
+          <p>A pessoa precisa entender o conteúdo e prever como a interface vai se comportar.</p>
+          <h3>Idioma e linguagem</h3>
+          <p>Declare o idioma da página (<code>&lt;html lang="pt-BR"&gt;</code>) para que o leitor de tela use a pronúncia correta. Escreva com clareza, como mostrado em <a href="comunicacao.html#linguagem">linguagem simples</a>.</p>
+          <h3>Rótulos em formulários</h3>
+          <p>Todo campo precisa de um rótulo visível e associado ao controle. Um texto de exemplo dentro do campo (placeholder) não substitui o rótulo, porque desaparece ao digitar.</p>
+          <pre><code>&lt;label for="email"&gt;E-mail&lt;/label&gt;
+    &lt;input id="email" type="email" autocomplete="email"
+           aria-describedby="email-dica"&gt;
+    &lt;p id="email-dica"&gt;Usaremos apenas para enviar a confirmação.&lt;/p&gt;</code></pre>
+          <h3>Feedback de interface</h3>
+          <p>Mensagens de erro devem dizer o que aconteceu e como resolver, perto do campo e também em um resumo. Resultados que aparecem sem recarregar a página precisam ser anunciados — por exemplo, com uma região <code>aria-live</code> ou movendo o foco para a mensagem. O <a href="guia.html#quiz">quiz do Guia prático</a> usa essas técnicas.</p>
+          <h3>Comportamento previsível</h3>
+          <p>Menus e botões devem aparecer no mesmo lugar em todas as páginas e funcionar sempre do mesmo jeito. Escolher uma opção não deve mudar de página sem aviso.</p>
+        </section>
+
+        <section id="robusto">
+          <h2>4. Robusto</h2>
+          <p>O conteúdo precisa funcionar em diferentes navegadores e tecnologias assistivas, hoje e no futuro. Isso depende de código bem escrito e de informar corretamente o nome, a função e o estado de cada componente.</p>
+          <h3>HTML semântico</h3>
+          <p>Use cada elemento para aquilo que ele significa: <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code> e <code>&lt;footer&gt;</code> para as regiões; <code>&lt;h1&gt;</code> a <code>&lt;h6&gt;</code> para títulos em ordem; <code>&lt;ul&gt;</code> para listas; <code>&lt;button&gt;</code> para ações e <code>&lt;a&gt;</code> para navegação.</p>
+          <h3>ARIA com moderação</h3>
+          <p>ARIA é um conjunto de atributos que complementa o HTML quando ele não basta. A regra é: se existe um elemento nativo, use-o. Quando necessário, mantenha o estado sincronizado com o que está na tela:</p>
+          <pre><code>&lt;button type="button" aria-pressed="false"&gt;Modo escuro&lt;/button&gt;
+    &lt;button type="button" aria-expanded="false" aria-controls="menu"&gt;Menu&lt;/button&gt;</code></pre>
+          <p>Neste portal, o JavaScript atualiza <code>aria-pressed</code> sempre que o modo escuro ou o alto contraste mudam, e <code>aria-expanded</code> quando o menu móvel abre ou fecha.</p>
+          <div class="nota">
+            <span class="nota-titulo">Ferramentas ajudam, mas não bastam</span>
+            <p>Validadores automáticos como Lighthouse e axe encontram parte dos problemas, como contraste e imagens sem alt. Outros — se o texto alternativo faz sentido, se a ordem de leitura é lógica — só aparecem em testes manuais e com pessoas usuárias.</p>
+          </div>
+        </section>
+
+        <section class="acoes-praticas" id="acoes" aria-labelledby="titulo-acoes">
+          <h2 id="titulo-acoes">Ações práticas</h2>
+          <ol>
+            <li>Navegue pelo seu site apenas com o teclado e verifique se o foco está sempre visível.</li>
+            <li>Confira se cada página tem um único <code>h1</code> e títulos em ordem.</li>
+            <li>Revise o texto alternativo de todas as imagens: informativas descritas, decorativas com <code>alt=""</code>.</li>
+            <li>Teste o contraste das cores com uma ferramenta de verificação.</li>
+            <li>Garanta que todo campo de formulário tenha um <code>label</code> associado.</li>
+            <li>Aplique zoom de 200% e reduza a janela até 320 pixels para conferir se nada some ou se sobrepõe.</li>
+            <li>Experimente um leitor de tela gratuito, como o NVDA (Windows) ou o VoiceOver (macOS e iOS).</li>
+          </ol>
+        </section>
+
+        <nav class="continue" aria-labelledby="titulo-continue">
+          <h2 id="titulo-continue">Continue lendo</h2>
+          <ul>
+            <li><a href="guia.html">Guia prático <span>Checklist para avaliar este site</span></a></li>
+            <li><a href="educacao.html">Educação <span>Plataformas e materiais acessíveis</span></a></li>
+            <li><a href="comunicacao.html">Comunicação <span>Linguagem simples e legendas</span></a></li>
+          </ul>
+        </nav>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container rodape-grade">
+      <div>
+        <p class="rodape-marca">Acesso em Foco</p>
+        <p>Inclusão em cada detalhe. Portal educativo com artigos sobre acessibilidade no cotidiano, produzido como trabalho individual da disciplina de Programação Web.</p>
+      </div>
+      <nav aria-label="Rodapé">
+        <h2 class="rodape-titulo">Páginas</h2>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="casa.html">Em casa</a></li>
+          <li><a href="cidade.html">Na cidade</a></li>
+          <li><a href="comunicacao.html">Comunicação</a></li>
+          <li><a href="educacao.html">Educação</a></li>
+          <li><a href="digital.html" aria-current="page">Mundo digital</a></li>
+          <li><a href="guia.html">Guia prático</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2 class="rodape-titulo">Referências</h2>
+        <ul>
+          <li><a href="https://emag.governoeletronico.gov.br/">eMAG 3.1 — Governo Federal (site externo)</a></li>
+          <li><a href="https://www.w3.org/TR/WCAG22/">WCAG 2.2 — W3C (site externo, em inglês)</a></li>
+          <li><a href="guia.html#referencias">Todas as referências do portal</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container rodape-base">
+      <p>Este portal foi construído com base no eMAG 3.1 e na WCAG 2.2 (nível AA como meta). Ele passou por testes automáticos e manuais, mas não por uma auditoria formal de conformidade.</p>
+      <a href="#topo">Voltar ao topo</a>
+    </div>
+  </footer>
+</body>
+</html>

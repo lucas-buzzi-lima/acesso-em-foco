@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Acesso em Foco — Acessibilidade no cotidiano</title>
+  <meta name="description" content="Portal educativo com artigos sobre acessibilidade em casa, na cidade, na comunicação, na educação e no mundo digital.">
+  <meta name="theme-color" content="#0a3c58">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="assets/app.js" defer></script>
+</head>
+<body id="topo">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="container header-topo">
+      <a class="marca" href="index.html">
+        <img src="assets/logo.svg" alt="" width="44" height="44">
+        <span>
+          <span class="marca-nome">Acesso em Foco</span>
+          <span class="marca-slogan">Inclusão em cada detalhe</span>
+        </span>
+      </a>
+      <button type="button" class="menu-botao" aria-expanded="false" aria-controls="menu-principal" hidden>
+        <span class="menu-botao-icone" aria-hidden="true"></span>
+        Menu
+      </button>
+    </div>
+
+    <nav class="menu-principal" id="menu-principal" aria-label="Principal">
+      <div class="container">
+        <ul class="menu">
+          <li><a href="index.html" aria-current="page">Início</a></li>
+          <li><a href="casa.html">Em casa</a></li>
+          <li><a href="cidade.html">Na cidade</a></li>
+          <li><a href="comunicacao.html">Comunicação</a></li>
+          <li><a href="educacao.html">Educação</a></li>
+          <li><a href="digital.html">Mundo digital</a></li>
+          <li><a href="guia.html">Guia prático</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="preferencias" id="preferencias" hidden>
+      <div class="container preferencias-conteudo" role="group" aria-labelledby="preferencias-titulo">
+        <span class="preferencias-titulo" id="preferencias-titulo">Preferências de leitura</span>
+        <div class="grupo-controles" role="group" aria-label="Tamanho do texto">
+          <button type="button" class="controle" data-fonte="diminuir">A−<span class="sr-only"> (diminuir texto)</span></button>
+          <button type="button" class="controle" data-fonte="aumentar">A+<span class="sr-only"> (aumentar texto)</span></button>
+          <button type="button" class="controle" data-fonte="padrao">Padrão<span class="sr-only"> (tamanho original do texto)</span></button>
+          <span class="valor-fonte"><span class="sr-only">Tamanho atual: </span><span id="valor-fonte">100%</span></span>
+        </div>
+        <div class="grupo-controles" role="group" aria-label="Cores">
+          <button type="button" class="controle" id="botao-escuro" aria-pressed="false">Modo escuro</button>
+          <button type="button" class="controle" id="botao-contraste" aria-pressed="false">Alto contraste</button>
+        </div>
+        <a class="preferencias-ajuda" href="index.html#recursos">Como usar estes recursos</a>
+      </div>
+    </div>
+  </header>
+
+  <p id="anuncios" class="sr-only" role="status" aria-live="polite"></p>
+
+  <main id="conteudo" tabindex="-1">
+<section class="hero" aria-labelledby="titulo-pagina">
+      <div class="container hero-grade">
+        <div>
+          <p class="sobretitulo">Portal educativo</p>
+          <h1 id="titulo-pagina">Acessibilidade no cotidiano, explicada com clareza</h1>
+          <p class="lead">O Acesso em Foco reúne artigos sobre como pequenas escolhas em casa, na rua, na sala de aula, nas conversas e nas telas ampliam a autonomia das pessoas. Aqui você encontra conceitos, exemplos do dia a dia e ações que podem ser aplicadas hoje.</p>
+          <div class="acoes">
+            <a class="botao" href="#temas">Conhecer os cinco temas</a>
+            <a class="botao botao--secundario" href="guia.html">Abrir o guia prático</a>
+          </div>
+        </div>
+        <figure class="ilustracao">
+          <img src="assets/hero.svg" alt="" width="480" height="360">
+        </figure>
+      </div>
+    </section>
+
+    <div class="container">
+      <section class="secao" aria-labelledby="titulo-importancia">
+        <div class="secao-intro">
+          <h2 id="titulo-importancia">Por que falar de acessibilidade?</h2>
+          <p>Acessibilidade é a condição que permite a qualquer pessoa usar espaços, serviços, informações e tecnologias com segurança e autonomia. Quando um ambiente não considera a diversidade de corpos, sentidos e formas de entender o mundo, a barreira está no ambiente — não na pessoa. Essa mudança de olhar é a base de todos os artigos deste portal.</p>
+        </div>
+        <ul class="grade-cartoes">
+          <li>
+            <article class="cartao">
+              <span class="cartao-numero" aria-hidden="true">01</span>
+              <h3>Diz respeito a muita gente</h3>
+              <p>Pessoas com deficiência física, visual, auditiva, intelectual ou psicossocial encontram barreiras diárias que poderiam ser evitadas com planejamento. Remover essas barreiras é uma questão de direito e de participação social.</p>
+            </article>
+          </li>
+          <li>
+            <article class="cartao">
+              <span class="cartao-numero" aria-hidden="true">02</span>
+              <h3>Todo mundo precisa em algum momento</h3>
+              <p>Um braço engessado, a recuperação de uma cirurgia, um carrinho de bebê, a visão que muda com a idade ou um ambiente barulhento: em várias fases da vida, qualquer pessoa se beneficia de soluções acessíveis.</p>
+            </article>
+          </li>
+          <li>
+            <article class="cartao">
+              <span class="cartao-numero" aria-hidden="true">03</span>
+              <h3>Começa nos detalhes</h3>
+              <p>Uma rampa bem inclinada, uma legenda no vídeo, um botão com nome claro ou um texto em linguagem simples custam pouco quando pensados desde o início — e fazem grande diferença para quem depende deles.</p>
+            </article>
+          </li>
+        </ul>
+      </section>
+
+      <section class="secao" id="temas" aria-labelledby="titulo-temas">
+        <div class="secao-intro">
+          <h2 id="titulo-temas">Explore os temas</h2>
+          <p>Cada artigo traz introdução, explicações por subtópico, exemplos concretos e uma lista de ações práticas. Comece por onde fizer mais sentido para você.</p>
+        </div>
+        <ul class="grade-cartoes">
+          <li>
+            <article class="cartao cartao--link">
+              <img class="cartao-icone" src="assets/casa.svg" alt="" width="56" height="56">
+              <h3><a href="casa.html">Em casa</a></h3>
+              <p>Circulação entre móveis, iluminação, comandos fáceis de perceber, banheiro e cozinha mais seguros.</p>
+            </article>
+          </li>
+          <li>
+            <article class="cartao cartao--link">
+              <img class="cartao-icone" src="assets/cidade.svg" alt="" width="56" height="56">
+              <h3><a href="cidade.html">Na cidade</a></h3>
+              <p>Calçadas contínuas, travessias, transporte, rampas e informação que chega por mais de um sentido.</p>
+            </article>
+          </li>
+          <li>
+            <article class="cartao cartao--link">
+              <img class="cartao-icone" src="assets/comunicacao.svg" alt="" width="56" height="56">
+              <h3><a href="comunicacao.html">Comunicação</a></h3>
+              <p>Legendas, transcrições, audiodescrição, Libras e linguagem simples para que a mensagem seja compreendida.</p>
+            </article>
+          </li>
+          <li>
+            <article class="cartao cartao--link">
+              <img class="cartao-icone" src="assets/educacao.svg" alt="" width="56" height="56">
+              <h3><a href="educacao.html">Educação</a></h3>
+              <p>Materiais em formatos alternativos, plataformas acessíveis, adaptações razoáveis e participação de todos.</p>
+            </article>
+          </li>
+          <li>
+            <article class="cartao cartao--link">
+              <img class="cartao-icone" src="assets/digital.svg" alt="" width="56" height="56">
+              <h3><a href="digital.html">Mundo digital</a></h3>
+              <p>Teclado, leitores de tela, HTML semântico, contraste, formulários e os quatro princípios da WCAG.</p>
+            </article>
+          </li>
+          <li>
+            <article class="cartao cartao--link">
+              <img class="cartao-icone" src="assets/guia.svg" alt="" width="56" height="56">
+              <h3><a href="guia.html">Guia prático</a></h3>
+              <p>Checklist para avaliar o site, quiz com correção, mapa do site e referências confiáveis.</p>
+            </article>
+          </li>
+        </ul>
+      </section>
+
+      <section class="secao" id="recursos" aria-labelledby="titulo-recursos">
+        <div class="secao-intro">
+          <h2 id="titulo-recursos">Recursos de acessibilidade deste portal</h2>
+          <p>Um site sobre acessibilidade precisa ser acessível. Abaixo estão os recursos disponíveis em todas as páginas e como usá-los. As preferências de texto e de cores ficam salvas neste navegador e continuam valendo quando você troca de página ou recarrega o site.</p>
+        </div>
+        <ul class="lista-recursos">
+          <li>
+            <strong>Pular para o conteúdo</strong>
+            Ao abrir qualquer página, pressione <kbd>Tab</kbd> uma vez: aparece o link “Pular para o conteúdo”. Pressione <kbd>Enter</kbd> para ir direto ao texto principal, sem passar pelo menu.
+          </li>
+          <li>
+            <strong>Navegação só pelo teclado</strong>
+            Use <kbd>Tab</kbd> para avançar, <kbd>Shift</kbd> + <kbd>Tab</kbd> para voltar, <kbd>Enter</kbd> para abrir links e <kbd>Espaço</kbd> para acionar botões e marcar opções. O elemento em foco sempre recebe um contorno grosso e colorido, bem visível em todos os modos de cor.
+          </li>
+          <li>
+            <strong>Tamanho do texto (A−, A+, Padrão)</strong>
+            Na barra “Preferências de leitura”, logo abaixo do menu, os botões diminuem, aumentam ou restauram o texto entre 87,5% e 150%. O valor atual aparece ao lado dos botões e a mudança é anunciada para leitores de tela.
+          </li>
+          <li>
+            <strong>Modo escuro</strong>
+            Troca o fundo claro por um fundo escuro com texto claro, útil à noite ou para quem sente desconforto com muito brilho. Quando ativo, o botão mostra uma marca de verificação (✓).
+          </li>
+          <li>
+            <strong>Alto contraste</strong>
+            Usa fundo preto, texto branco e links amarelos, com bordas reforçadas. Ajuda pessoas com baixa visão. Ele tem prioridade sobre o modo escuro enquanto estiver ativo.
+          </li>
+          <li>
+            <strong>Menu em telas pequenas</strong>
+            No celular, o menu fica atrás do botão “Menu”. O botão informa se o menu está aberto ou fechado, e a tecla <kbd>Esc</kbd> fecha o menu e devolve o foco ao botão.
+          </li>
+          <li>
+            <strong>Estrutura clara</strong>
+            Cada página tem um título principal, seções com subtítulos em ordem e regiões de cabeçalho, navegação, conteúdo e rodapé — o que permite que leitores de tela pulem entre partes da página.
+          </li>
+          <li>
+            <strong>Zoom e telas estreitas</strong>
+            O layout se reorganiza com zoom de até 400% ou em telas a partir de 320 pixels de largura, sem rolagem horizontal. O site também respeita a opção do sistema de reduzir animações.
+          </li>
+        </ul>
+      </section>
+
+      <section class="faixa-convite" aria-labelledby="titulo-convite">
+        <h2 id="titulo-convite">Coloque em prática</h2>
+        <p>O Guia prático tem um checklist para você avaliar este próprio portal usando teclado, zoom e os ajustes de leitura, além de um quiz rápido para revisar os conceitos.</p>
+        <a class="botao" href="guia.html">Ir para o Guia prático</a>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container rodape-grade">
+      <div>
+        <p class="rodape-marca">Acesso em Foco</p>
+        <p>Inclusão em cada detalhe. Portal educativo com artigos sobre acessibilidade no cotidiano, produzido como trabalho individual da disciplina de Programação Web.</p>
+      </div>
+      <nav aria-label="Rodapé">
+        <h2 class="rodape-titulo">Páginas</h2>
+        <ul>
+          <li><a href="index.html" aria-current="page">Início</a></li>
+          <li><a href="casa.html">Em casa</a></li>
+          <li><a href="cidade.html">Na cidade</a></li>
+          <li><a href="comunicacao.html">Comunicação</a></li>
+          <li><a href="educacao.html">Educação</a></li>
+          <li><a href="digital.html">Mundo digital</a></li>
+          <li><a href="guia.html">Guia prático</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2 class="rodape-titulo">Referências</h2>
+        <ul>
+          <li><a href="https://emag.governoeletronico.gov.br/">eMAG 3.1 — Governo Federal (site externo)</a></li>
+          <li><a href="https://www.w3.org/TR/WCAG22/">WCAG 2.2 — W3C (site externo, em inglês)</a></li>
+          <li><a href="guia.html#referencias">Todas as referências do portal</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container rodape-base">
+      <p>Este portal foi construído com base no eMAG 3.1 e na WCAG 2.2 (nível AA como meta). Ele passou por testes automáticos e manuais, mas não por uma auditoria formal de conformidade.</p>
+      <a href="#topo">Voltar ao topo</a>
+    </div>
+  </footer>
+</body>
+</html>

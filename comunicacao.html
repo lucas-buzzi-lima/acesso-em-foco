@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Comunicação: informação que todos compreendem — Acesso em Foco</title>
+  <meta name="description" content="A diferença entre fornecer e tornar compreensível: legendas, transcrições, audiodescrição, Libras, linguagem simples e canais de contato.">
+  <meta name="theme-color" content="#0a3c58">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="assets/app.js" defer></script>
+</head>
+<body id="topo">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="container header-topo">
+      <a class="marca" href="index.html">
+        <img src="assets/logo.svg" alt="" width="44" height="44">
+        <span>
+          <span class="marca-nome">Acesso em Foco</span>
+          <span class="marca-slogan">Inclusão em cada detalhe</span>
+        </span>
+      </a>
+      <button type="button" class="menu-botao" aria-expanded="false" aria-controls="menu-principal" hidden>
+        <span class="menu-botao-icone" aria-hidden="true"></span>
+        Menu
+      </button>
+    </div>
+
+    <nav class="menu-principal" id="menu-principal" aria-label="Principal">
+      <div class="container">
+        <ul class="menu">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="casa.html">Em casa</a></li>
+          <li><a href="cidade.html">Na cidade</a></li>
+          <li><a href="comunicacao.html" aria-current="page">Comunicação</a></li>
+          <li><a href="educacao.html">Educação</a></li>
+          <li><a href="digital.html">Mundo digital</a></li>
+          <li><a href="guia.html">Guia prático</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="preferencias" id="preferencias" hidden>
+      <div class="container preferencias-conteudo" role="group" aria-labelledby="preferencias-titulo">
+        <span class="preferencias-titulo" id="preferencias-titulo">Preferências de leitura</span>
+        <div class="grupo-controles" role="group" aria-label="Tamanho do texto">
+          <button type="button" class="controle" data-fonte="diminuir">A−<span class="sr-only"> (diminuir texto)</span></button>
+          <button type="button" class="controle" data-fonte="aumentar">A+<span class="sr-only"> (aumentar texto)</span></button>
+          <button type="button" class="controle" data-fonte="padrao">Padrão<span class="sr-only"> (tamanho original do texto)</span></button>
+          <span class="valor-fonte"><span class="sr-only">Tamanho atual: </span><span id="valor-fonte">100%</span></span>
+        </div>
+        <div class="grupo-controles" role="group" aria-label="Cores">
+          <button type="button" class="controle" id="botao-escuro" aria-pressed="false">Modo escuro</button>
+          <button type="button" class="controle" id="botao-contraste" aria-pressed="false">Alto contraste</button>
+        </div>
+        <a class="preferencias-ajuda" href="index.html#recursos">Como usar estes recursos</a>
+      </div>
+    </div>
+  </header>
+
+  <p id="anuncios" class="sr-only" role="status" aria-live="polite"></p>
+
+  <main id="conteudo" tabindex="-1">
+<section class="hero" aria-labelledby="titulo-pagina">
+      <div class="container hero-grade">
+        <div>
+          <nav class="trilha" aria-label="Você está em">
+            <ol>
+              <li><a href="index.html">Início</a></li>
+              <li><span aria-current="page">Comunicação</span></li>
+            </ol>
+          </nav>
+          <p class="sobretitulo">Artigo · Comunicação</p>
+          <h1 id="titulo-pagina">Informar não é o mesmo que comunicar</h1>
+          <p class="lead">Um aviso publicado, um vídeo postado ou um telefone divulgado fornecem informação. A comunicação só acontece quando a pessoa consegue perceber, entender e responder a essa mensagem — e isso depende do formato escolhido.</p>
+        </div>
+        <figure class="ilustracao">
+          <img src="assets/comunicacao.svg" alt="Ilustração de um vídeo com legenda e o símbolo CC, uma janela com intérprete de Libras ao lado e dois balões de conversa abaixo." width="400" height="300">
+        </figure>
+      </div>
+    </section>
+
+    <div class="container artigo-layout">
+      <nav class="sumario" aria-labelledby="sumario-titulo">
+        <h2 id="sumario-titulo">Nesta página</h2>
+        <ol>
+          <li><a href="#introducao">Fornecer x tornar compreensível</a></li>
+          <li><a href="#legendas">Legendas e transcrições</a></li>
+          <li><a href="#audiodescricao">Audiodescrição</a></li>
+          <li><a href="#libras">Libras</a></li>
+          <li><a href="#linguagem">Linguagem simples</a></li>
+          <li><a href="#canais">Diferentes canais de contato</a></li>
+          <li><a href="#acoes">Ações práticas</a></li>
+        </ol>
+      </nav>
+
+      <article class="artigo" aria-labelledby="titulo-pagina">
+        <section id="introducao">
+          <h2>Fornecer informação x torná-la compreensível</h2>
+          <p>Imagine uma clínica que comunica a mudança de horário apenas por uma mensagem de áudio no telefone. A informação existe, mas uma pessoa surda não tem acesso a ela. Agora imagine o mesmo aviso em um texto longo, cheio de termos técnicos: ele está disponível, mas muita gente não vai entender o que precisa fazer.</p>
+          <p>Comunicação acessível é aquela que considera <strong>quem vai receber</strong> a mensagem. Ela oferece formatos alternativos, usa linguagem clara e abre caminhos para a pessoa tirar dúvidas.</p>
+          <div class="comparacao">
+            <div>
+              <h3>Apenas fornecer</h3>
+              <p>“O atendimento presencial foi readequado conforme a nova sistemática de agendamento prévio obrigatório.” Divulgado só em um cartaz na recepção.</p>
+            </div>
+            <div>
+              <h3>Tornar compreensível</h3>
+              <p>“A partir de 1º de março, marque seu horário antes de vir. Você pode agendar pelo site, por mensagem de texto ou pelo telefone.” Divulgado em cartaz, site, mensagem e áudio.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="legendas">
+          <h2>Legendas e transcrições</h2>
+          <p>Legendas transformam o conteúdo falado de um vídeo em texto sincronizado. Elas ajudam pessoas surdas ou com perda auditiva, mas também quem assiste em lugares barulhentos, quem está aprendendo o idioma ou quem não pode ligar o som.</p>
+          <ul>
+            <li><strong>Legenda para surdos e ensurdecidos (LSE):</strong> além das falas, indica quem está falando e descreve sons importantes, como “[risadas]”, “[música tensa]” ou “[campainha toca]”.</li>
+            <li><strong>Qualidade importa:</strong> legendas automáticas são um bom começo, mas costumam errar nomes, termos técnicos e pontuação. Revise antes de publicar.</li>
+            <li><strong>Transcrição:</strong> é o texto completo de um áudio ou vídeo, disponível ao lado do conteúdo. É essencial para podcasts e útil para quem prefere ler, para quem usa linha braile e para quem quer buscar um trecho específico.</li>
+          </ul>
+          <div class="exemplo">
+            <span class="exemplo-titulo">Exemplo do dia a dia</span>
+            <p>Uma escola publica um vídeo explicando a matrícula. Com legenda revisada e transcrição logo abaixo, a mãe que é surda consegue acompanhar, o pai que estava no ônibus lê sem som, e a avó que vai ajudar copia os passos da transcrição para um papel.</p>
+          </div>
+        </section>
+
+        <section id="audiodescricao">
+          <h2>Audiodescrição</h2>
+          <p>A audiodescrição narra, em palavras, informações visuais importantes que não aparecem no som: cenários, ações, expressões, textos na tela e mudanças de cena. Ela é fundamental para pessoas cegas ou com baixa visão e também ajuda pessoas com deficiência intelectual a acompanhar a história.</p>
+          <ul>
+            <li>Em vídeos, é inserida nos intervalos entre as falas.</li>
+            <li>Em eventos ao vivo, pode ser feita por profissionais com fones de ouvido distribuídos ao público.</li>
+            <li>No dia a dia, a mesma ideia vale para apresentações: descreva o gráfico em vez de dizer “como vocês podem ver aqui”.</li>
+          </ul>
+          <p>Na internet, o equivalente mais comum é o <strong>texto alternativo</strong> de imagens, explicado no artigo <a href="digital.html#perceptivel">Mundo digital</a>.</p>
+        </section>
+
+        <section id="libras">
+          <h2>Libras</h2>
+          <p>A Língua Brasileira de Sinais (Libras) é reconhecida por lei no Brasil como meio legal de comunicação e expressão. Ela tem gramática própria e não é uma tradução palavra por palavra do português. Para muitas pessoas surdas, a Libras é a primeira língua, e o português escrito é uma segunda língua.</p>
+          <ul>
+            <li><strong>Por isso legenda não substitui Libras:</strong> uma pessoa surda que se comunica principalmente em Libras pode ter mais facilidade com um vídeo interpretado do que com um texto em português.</li>
+            <li><strong>Janela de Libras:</strong> em vídeos, o intérprete aparece em um espaço da tela grande o bastante para que as mãos e as expressões faciais sejam visíveis.</li>
+            <li><strong>Intérpretes profissionais:</strong> em eventos, consultas e atendimentos importantes, a presença de tradutor-intérprete de Libras garante comunicação de qualidade.</li>
+            <li><strong>Aprender o básico:</strong> saber cumprimentar e se apresentar em Libras é uma forma simples de acolhimento.</li>
+          </ul>
+        </section>
+
+        <section id="linguagem">
+          <h2>Linguagem simples</h2>
+          <p>Linguagem simples é uma técnica de escrita que ajuda a pessoa a encontrar, entender e usar a informação na primeira leitura. Ela beneficia pessoas com deficiência intelectual, com dislexia, com pouca familiaridade com o tema ou que estão lendo com pressa — ou seja, praticamente todo mundo.</p>
+          <ul class="lista-dupla">
+            <li>Coloque a informação mais importante no início.</li>
+            <li>Use frases curtas, com uma ideia por frase.</li>
+            <li>Prefira palavras comuns; explique termos técnicos quando forem necessários.</li>
+            <li>Fale diretamente com a pessoa (“você”).</li>
+            <li>Use verbos na voz ativa: “envie o formulário” em vez de “o formulário deverá ser enviado”.</li>
+            <li>Divida o texto com títulos e listas.</li>
+            <li>Escreva datas, horários e valores por extenso e completos.</li>
+            <li>Teste o texto com pessoas do público a que ele se destina.</li>
+          </ul>
+          <div class="exemplo">
+            <span class="exemplo-titulo">Exemplo do dia a dia</span>
+            <p>Antes: “Solicita-se o comparecimento munido de documentação comprobatória.” Depois: “Venha com seu documento de identidade e um comprovante de endereço.” A segunda frase diz exatamente o que fazer.</p>
+          </div>
+        </section>
+
+        <section id="canais">
+          <h2>Diferentes canais de contato</h2>
+          <p>Oferecer apenas um canal de atendimento exclui quem não consegue usá-lo. Um serviço que só atende por telefone exclui pessoas surdas; um que só atende por aplicativo exclui quem não tem celular ou tem dificuldade com tecnologia.</p>
+          <ul>
+            <li>Disponibilize ao menos dois canais diferentes, como telefone e mensagem de texto, ou e-mail e atendimento presencial.</li>
+            <li>Informe esses canais em lugares visíveis, com texto claro.</li>
+            <li>Permita que a pessoa escolha o canal e o formato da resposta.</li>
+            <li>Em atendimento presencial, olhe para a pessoa ao falar, sem cobrir a boca, para facilitar a leitura labial de quem a utiliza.</li>
+            <li>Fale diretamente com a pessoa com deficiência, não apenas com o acompanhante ou o intérprete.</li>
+          </ul>
+        </section>
+
+        <section class="acoes-praticas" id="acoes" aria-labelledby="titulo-acoes">
+          <h2 id="titulo-acoes">Ações práticas</h2>
+          <ol>
+            <li>Ative e revise as legendas dos vídeos que você publica.</li>
+            <li>Inclua transcrição em podcasts e áudios importantes.</li>
+            <li>Escreva descrições para as imagens que você compartilha nas redes sociais.</li>
+            <li>Releia seus avisos e reescreva frases longas ou com jargões.</li>
+            <li>Ofereça pelo menos dois canais de contato e divulgue os dois.</li>
+            <li>Aprenda os sinais básicos de cumprimento em Libras.</li>
+          </ol>
+        </section>
+
+        <nav class="continue" aria-labelledby="titulo-continue">
+          <h2 id="titulo-continue">Continue lendo</h2>
+          <ul>
+            <li><a href="educacao.html">Educação <span>Materiais e aulas para todos</span></a></li>
+            <li><a href="digital.html">Mundo digital <span>Teclado, leitores de tela e WCAG</span></a></li>
+            <li><a href="cidade.html">Na cidade <span>Informação multissensorial na rua</span></a></li>
+          </ul>
+        </nav>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container rodape-grade">
+      <div>
+        <p class="rodape-marca">Acesso em Foco</p>
+        <p>Inclusão em cada detalhe. Portal educativo com artigos sobre acessibilidade no cotidiano, produzido como trabalho individual da disciplina de Programação Web.</p>
+      </div>
+      <nav aria-label="Rodapé">
+        <h2 class="rodape-titulo">Páginas</h2>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="casa.html">Em casa</a></li>
+          <li><a href="cidade.html">Na cidade</a></li>
+          <li><a href="comunicacao.html" aria-current="page">Comunicação</a></li>
+          <li><a href="educacao.html">Educação</a></li>
+          <li><a href="digital.html">Mundo digital</a></li>
+          <li><a href="guia.html">Guia prático</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2 class="rodape-titulo">Referências</h2>
+        <ul>
+          <li><a href="https://emag.governoeletronico.gov.br/">eMAG 3.1 — Governo Federal (site externo)</a></li>
+          <li><a href="https://www.w3.org/TR/WCAG22/">WCAG 2.2 — W3C (site externo, em inglês)</a></li>
+          <li><a href="guia.html#referencias">Todas as referências do portal</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container rodape-base">
+      <p>Este portal foi construído com base no eMAG 3.1 e na WCAG 2.2 (nível AA como meta). Ele passou por testes automáticos e manuais, mas não por uma auditoria formal de conformidade.</p>
+      <a href="#topo">Voltar ao topo</a>
+    </div>
+  </footer>
+</body>
+</html>

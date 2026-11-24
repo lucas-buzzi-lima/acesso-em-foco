@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Na cidade: calçadas, travessias e transporte acessíveis — Acesso em Foco</title>
+  <meta name="description" content="O papel de calçadas contínuas, travessias seguras, transporte, rampas e informação multissensorial na circulação urbana.">
+  <meta name="theme-color" content="#0a3c58">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="assets/app.js" defer></script>
+</head>
+<body id="topo">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="container header-topo">
+      <a class="marca" href="index.html">
+        <img src="assets/logo.svg" alt="" width="44" height="44">
+        <span>
+          <span class="marca-nome">Acesso em Foco</span>
+          <span class="marca-slogan">Inclusão em cada detalhe</span>
+        </span>
+      </a>
+      <button type="button" class="menu-botao" aria-expanded="false" aria-controls="menu-principal" hidden>
+        <span class="menu-botao-icone" aria-hidden="true"></span>
+        Menu
+      </button>
+    </div>
+
+    <nav class="menu-principal" id="menu-principal" aria-label="Principal">
+      <div class="container">
+        <ul class="menu">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="casa.html">Em casa</a></li>
+          <li><a href="cidade.html" aria-current="page">Na cidade</a></li>
+          <li><a href="comunicacao.html">Comunicação</a></li>
+          <li><a href="educacao.html">Educação</a></li>
+          <li><a href="digital.html">Mundo digital</a></li>
+          <li><a href="guia.html">Guia prático</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="preferencias" id="preferencias" hidden>
+      <div class="container preferencias-conteudo" role="group" aria-labelledby="preferencias-titulo">
+        <span class="preferencias-titulo" id="preferencias-titulo">Preferências de leitura</span>
+        <div class="grupo-controles" role="group" aria-label="Tamanho do texto">
+          <button type="button" class="controle" data-fonte="diminuir">A−<span class="sr-only"> (diminuir texto)</span></button>
+          <button type="button" class="controle" data-fonte="aumentar">A+<span class="sr-only"> (aumentar texto)</span></button>
+          <button type="button" class="controle" data-fonte="padrao">Padrão<span class="sr-only"> (tamanho original do texto)</span></button>
+          <span class="valor-fonte"><span class="sr-only">Tamanho atual: </span><span id="valor-fonte">100%</span></span>
+        </div>
+        <div class="grupo-controles" role="group" aria-label="Cores">
+          <button type="button" class="controle" id="botao-escuro" aria-pressed="false">Modo escuro</button>
+          <button type="button" class="controle" id="botao-contraste" aria-pressed="false">Alto contraste</button>
+        </div>
+        <a class="preferencias-ajuda" href="index.html#recursos">Como usar estes recursos</a>
+      </div>
+    </div>
+  </header>
+
+  <p id="anuncios" class="sr-only" role="status" aria-live="polite"></p>
+
+  <main id="conteudo" tabindex="-1">
+<section class="hero" aria-labelledby="titulo-pagina">
+      <div class="container hero-grade">
+        <div>
+          <nav class="trilha" aria-label="Você está em">
+            <ol>
+              <li><a href="index.html">Início</a></li>
+              <li><span aria-current="page">Na cidade</span></li>
+            </ol>
+          </nav>
+          <p class="sobretitulo">Artigo · Na cidade</p>
+          <h1 id="titulo-pagina">Uma cidade para ir e voltar com segurança</h1>
+          <p class="lead">Ir à escola, ao trabalho, ao posto de saúde ou à praça depende de uma corrente de elementos: calçada, rampa, travessia, ponto de ônibus, veículo e informação. Se um único elo falha, o trajeto inteiro pode se tornar impossível.</p>
+        </div>
+        <figure class="ilustracao">
+          <img src="assets/cidade.svg" alt="Ilustração de rua com faixa de pedestres, calçada com piso tátil amarelo e rampa rebaixada, semáforo que emite som e ônibus de piso baixo com porta larga." width="400" height="300">
+        </figure>
+      </div>
+    </section>
+
+    <div class="container artigo-layout">
+      <nav class="sumario" aria-labelledby="sumario-titulo">
+        <h2 id="sumario-titulo">Nesta página</h2>
+        <ol>
+          <li><a href="#introducao">A rota acessível</a></li>
+          <li><a href="#calcadas">Calçadas contínuas</a></li>
+          <li><a href="#rampas">Rampas adequadas</a></li>
+          <li><a href="#travessias">Travessias</a></li>
+          <li><a href="#transporte">Transporte</a></li>
+          <li><a href="#orientacao">Orientação e informação</a></li>
+          <li><a href="#acoes">Ações práticas</a></li>
+        </ol>
+      </nav>
+
+      <article class="artigo" aria-labelledby="titulo-pagina">
+        <section id="introducao">
+          <h2>A ideia de rota acessível</h2>
+          <p>Pense em um trajeto de casa até uma padaria a três quarteirões. Para uma pessoa que caminha sem dificuldades, ele pode levar cinco minutos. Para quem usa cadeira de rodas, um único degrau sem rampa obriga a descer para a rua, entre os carros. Para uma pessoa cega, uma placa instalada no meio da calçada pode causar um ferimento. Para alguém com mobilidade reduzida, a falta de um banco no caminho pode significar desistir do passeio.</p>
+          <p>Por isso se fala em <strong>rota acessível</strong>: um percurso contínuo, sem interrupções, que liga os lugares de forma segura para todas as pessoas. Não adianta ter um prédio com elevador se a calçada que leva até ele é intransitável.</p>
+          <p>As barreiras urbanas atingem muita gente além das pessoas com deficiência: idosos, gestantes, pais com carrinho de bebê, entregadores com carrinho de carga e turistas com mala de rodinhas.</p>
+        </section>
+
+        <section id="calcadas">
+          <h2>Calçadas contínuas</h2>
+          <p>A calçada é o principal espaço de circulação de quem anda a pé. Uma boa calçada costuma ser pensada em três faixas:</p>
+          <ul>
+            <li><strong>Faixa de serviço:</strong> perto do meio-fio, onde ficam postes, lixeiras, árvores e placas.</li>
+            <li><strong>Faixa livre:</strong> no meio, reservada apenas para caminhar. Precisa ser plana, firme, antiderrapante e sem obstáculos.</li>
+            <li><strong>Faixa de acesso:</strong> junto aos imóveis, onde podem existir vasos, mesas ou a entrada das garagens, sem invadir a faixa livre.</li>
+          </ul>
+          <p>Problemas comuns incluem degraus entre calçadas de lotes vizinhos, rampas de garagem que inclinam toda a calçada para os lados, buracos, raízes expostas e carros estacionados sobre o passeio.</p>
+          <h3>Piso tátil</h3>
+          <p>O piso tátil tem relevo que pode ser percebido com a bengala e com os pés. O <strong>direcional</strong>, com linhas em relevo, indica o caminho a seguir; o de <strong>alerta</strong>, com pequenos círculos, avisa sobre mudança de nível, obstáculos ou o início de uma travessia. Para funcionar, ele precisa ter cor contrastante com o piso ao redor e não pode levar a um poste ou a um buraco.</p>
+          <div class="exemplo">
+            <span class="exemplo-titulo">Exemplo do dia a dia</span>
+            <p>João é cego e usa bengala para ir ao trabalho. Num trecho, a linha de piso tátil termina em uma banca de jornal instalada depois da obra. Para ele, uma informação errada é pior do que nenhuma: o piso prometia um caminho livre que não existe. Manter o piso tátil coerente com o que está na calçada é tão importante quanto instalá-lo.</p>
+          </div>
+        </section>
+
+        <section id="rampas">
+          <h2>Rampas adequadas</h2>
+          <p>Uma rampa só é acessível se puder ser usada com segurança e sem esforço excessivo. Uma rampa íngreme demais pode fazer uma cadeira de rodas tombar para trás na subida ou ganhar velocidade perigosa na descida.</p>
+          <ul>
+            <li><strong>Inclinação suave:</strong> quanto mais baixa a inclinação, mais fácil é subir. Rampas longas precisam de áreas planas de descanso no meio.</li>
+            <li><strong>Corrimãos dos dois lados:</strong> dão apoio a quem caminha com dificuldade e a quem usa uma das mãos para outra tarefa.</li>
+            <li><strong>Sinalização no início e no fim:</strong> piso tátil de alerta e contraste de cor indicam a mudança de nível.</li>
+            <li><strong>Rebaixamento de calçada:</strong> nas esquinas, a guia rebaixada deve se alinhar à faixa de pedestres, ficando nivelada com a rua no ponto de encontro.</li>
+          </ul>
+          <p>As medidas exatas de inclinação, largura e corrimão estão na norma ABNT NBR 9050 e devem ser verificadas por profissionais responsáveis pela obra.</p>
+        </section>
+
+        <section id="travessias">
+          <h2>Travessias</h2>
+          <p>Atravessar a rua é um dos momentos de maior risco para pedestres. Uma travessia acessível combina vários elementos:</p>
+          <ul>
+            <li>Faixa de pedestres bem pintada e iluminada à noite.</li>
+            <li>Rebaixamento da calçada dos dois lados da rua, alinhados entre si.</li>
+            <li>Tempo de semáforo suficiente para quem anda mais devagar.</li>
+            <li>Semáforo com sinal sonoro ou vibratório, que avisa pessoas cegas ou com baixa visão quando é seguro atravessar.</li>
+            <li>Canteiro central com espaço de espera nivelado, quando a rua é muito larga.</li>
+          </ul>
+          <div class="exemplo">
+            <span class="exemplo-titulo">Exemplo do dia a dia</span>
+            <p>Dona Lúcia, de 78 anos, evitava atravessar uma avenida perto de casa porque o sinal fechava antes que ela chegasse ao outro lado. Depois que o tempo de travessia foi ajustado e um canteiro central passou a servir de ponto de espera, ela voltou a ir sozinha à feira.</p>
+          </div>
+        </section>
+
+        <section id="transporte">
+          <h2>Transporte</h2>
+          <p>O transporte coletivo conecta a cidade. Para ser acessível, a viagem precisa funcionar do ponto de partida ao destino:</p>
+          <ul>
+            <li><strong>No ponto:</strong> abrigo coberto, assento, espaço para cadeira de rodas e informação sobre as linhas em texto grande, em áudio ou em aplicativo.</li>
+            <li><strong>No embarque:</strong> veículos de piso baixo, plataformas no mesmo nível da porta ou elevadores e rampas em funcionamento.</li>
+            <li><strong>Dentro do veículo:</strong> área reservada para cadeira de rodas, barras de apoio, assentos preferenciais e anúncio da próxima parada em som e em painel visual.</li>
+            <li><strong>Atendimento:</strong> motoristas e cobradores orientados a aguardar o embarque com calma e a oferecer ajuda perguntando antes como ajudar.</li>
+          </ul>
+          <p>Quando o elevador do ônibus está quebrado ou o painel não mostra a próxima parada, a pessoa perde a autonomia daquela viagem. Manutenção faz parte da acessibilidade.</p>
+        </section>
+
+        <section id="orientacao">
+          <h2>Orientação espacial e informação multissensorial</h2>
+          <p>Saber onde se está e para onde ir depende de informação. Uma cidade acessível oferece a mesma informação por mais de um sentido, para que ninguém dependa de um só canal.</p>
+          <div class="comparacao">
+            <div>
+              <h3>Visual</h3>
+              <p>Placas com letras grandes, cores contrastantes e pictogramas conhecidos, instaladas na altura dos olhos e bem iluminadas.</p>
+            </div>
+            <div>
+              <h3>Sonora</h3>
+              <p>Anúncios de estação e de parada, semáforos sonoros e totens que leem a informação em voz alta ao toque de um botão.</p>
+            </div>
+            <div>
+              <h3>Tátil</h3>
+              <p>Piso tátil, mapas em relevo, braile em corrimãos e botões de elevador, e texturas diferentes para marcar áreas.</p>
+            </div>
+          </div>
+          <p>Pontos de referência estáveis — como uma fonte, uma árvore grande ou uma banca sempre no mesmo lugar — também ajudam a orientação de todas as pessoas, inclusive quem tem deficiência intelectual ou está em um lugar desconhecido.</p>
+        </section>
+
+        <section class="acoes-praticas" id="acoes" aria-labelledby="titulo-acoes">
+          <h2 id="titulo-acoes">Ações práticas</h2>
+          <ol>
+            <li>Não estacione sobre calçadas, rampas ou faixas de pedestre, nem por “só um minuto”.</li>
+            <li>Mantenha a calçada da sua casa sem degraus, buracos e objetos na faixa livre.</li>
+            <li>Ao ver uma pessoa com deficiência na rua, pergunte se ela quer ajuda antes de agir — e siga as instruções dela.</li>
+            <li>Nunca segure a bengala ou empurre a cadeira de rodas de alguém sem autorização: elas são extensões do corpo da pessoa.</li>
+            <li>Registre barreiras urbanas nos canais de atendimento da prefeitura, com foto e endereço.</li>
+            <li>Em reuniões de bairro ou na escola, proponha um “passeio de observação” para mapear obstáculos no entorno.</li>
+          </ol>
+        </section>
+
+        <nav class="continue" aria-labelledby="titulo-continue">
+          <h2 id="titulo-continue">Continue lendo</h2>
+          <ul>
+            <li><a href="casa.html">Em casa <span>Autonomia no ambiente doméstico</span></a></li>
+            <li><a href="comunicacao.html">Comunicação <span>Legendas, Libras e linguagem simples</span></a></li>
+            <li><a href="educacao.html">Educação <span>Aprendizagem para todas as pessoas</span></a></li>
+          </ul>
+        </nav>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container rodape-grade">
+      <div>
+        <p class="rodape-marca">Acesso em Foco</p>
+        <p>Inclusão em cada detalhe. Portal educativo com artigos sobre acessibilidade no cotidiano, produzido como trabalho individual da disciplina de Programação Web.</p>
+      </div>
+      <nav aria-label="Rodapé">
+        <h2 class="rodape-titulo">Páginas</h2>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="casa.html">Em casa</a></li>
+          <li><a href="cidade.html" aria-current="page">Na cidade</a></li>
+          <li><a href="comunicacao.html">Comunicação</a></li>
+          <li><a href="educacao.html">Educação</a></li>
+          <li><a href="digital.html">Mundo digital</a></li>
+          <li><a href="guia.html">Guia prático</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2 class="rodape-titulo">Referências</h2>
+        <ul>
+          <li><a href="https://emag.governoeletronico.gov.br/">eMAG 3.1 — Governo Federal (site externo)</a></li>
+          <li><a href="https://www.w3.org/TR/WCAG22/">WCAG 2.2 — W3C (site externo, em inglês)</a></li>
+          <li><a href="guia.html#referencias">Todas as referências do portal</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container rodape-base">
+      <p>Este portal foi construído com base no eMAG 3.1 e na WCAG 2.2 (nível AA como meta). Ele passou por testes automáticos e manuais, mas não por uma auditoria formal de conformidade.</p>
+      <a href="#topo">Voltar ao topo</a>
+    </div>
+  </footer>
+</body>
+</html>
